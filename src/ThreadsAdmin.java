@@ -1,4 +1,5 @@
 
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import controller.ConnectionDB;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -43,7 +44,7 @@ public class ThreadsAdmin extends javax.swing.JFrame {
             }
             @Override
             protected void done(){
-                jLabel1.setText(String.valueOf(t5.getState()));
+                jLabel1.setText(String.valueOf(t1.getState()));
             }
         };
         t2 = new SwingWorker() {
@@ -65,33 +66,33 @@ public class ThreadsAdmin extends javax.swing.JFrame {
             }
             @Override
             protected void done(){
-                jLabel2.setText(String.valueOf(t5.getState()));
+                jLabel2.setText(String.valueOf(t2.getState()));
             }
         };
         t3 = new SwingWorker() {
             @Override
             protected Object doInBackground()  {
-                int i = 0;
                 try {
+                    int i = 0;
                     Thread.sleep(1000);
+                    jLabel3.setText(String.valueOf(t3.getState()));
+                    while (i < 100) {
+                        System.out.println("corriendo...");
+                        jProgressBar3.setValue(i++);
+                        Thread.sleep(1000);
+                    }
                 } catch (InterruptedException ex) {
                     Logger.getLogger(ThreadsAdmin.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                jLabel3.setText(String.valueOf(t3.getState()));
-                while (i < 100) {
-                   jProgressBar3.setValue(i++);
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(ThreadsAdmin.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    Thread.interrupted();
+                    System.out.println("hilo 3 interrumpido"+ Thread.interrupted());
                 }
                 return null;
                 
             }
             @Override
             protected void done(){
-                jLabel3.setText(String.valueOf(t5.getState()));
+                jLabel3.setText(String.valueOf(t3.getState()));
+                System.out.println("hilo 3 interrumpido"+ Thread.interrupted());
             }
         };
         t4 = new SwingWorker() {
@@ -112,7 +113,10 @@ public class ThreadsAdmin extends javax.swing.JFrame {
             }
             @Override
             protected void done(){
-                jLabel4.setText(String.valueOf(t5.getState()));
+                System.out.println("name: "+Thread.currentThread().getName());
+                System.out.println(Thread.interrupted());
+                jLabel4.setText(String.valueOf(t4.getState()));
+                
             }
         }; 
         //BD connection
@@ -127,6 +131,7 @@ public class ThreadsAdmin extends javax.swing.JFrame {
                     Connection DBConnection = new ConnectionDB().DBConnection("", "", "", "", "");
                 } catch (InterruptedException ex) {
                     Logger.getLogger(ThreadsAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println("hilo interrumpido");
                 } catch (SQLException ex) {
                     Logger.getLogger(ThreadsAdmin.class.getName()).log(Level.SEVERE, null, ex);
                     JOptionPane.showMessageDialog(rootPane, "error al conectar", "", JOptionPane.ERROR_MESSAGE);
@@ -135,20 +140,19 @@ public class ThreadsAdmin extends javax.swing.JFrame {
             }
             @Override
             protected void done(){
-                jLabel5.setText(String.valueOf(t5.getState()));
+                
+                System.out.println(t5.getState());
             }
-            
         }; //progressbarBD
         t6 = new SwingWorker() {
             @Override
             protected Object doInBackground() {
                 try {
                     int i = 0;
-                    Thread.sleep(1000);
-                    jLabel5.setText(String.valueOf(t1.getState()));
-                    while (i < 100) {
+                    
+                    while (i <= 30) {
                         jProgressBar5.setValue(i++);
-                        
+                        System.out.println("corriendo progress bar bd..."+t5.getState());
                         Thread.sleep(1000);
                     }
                 } catch (InterruptedException ex) {
@@ -323,10 +327,10 @@ public class ThreadsAdmin extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jButton1)
-                                .addComponent(jButton6)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jButton6)))
                         .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
