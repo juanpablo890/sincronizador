@@ -140,7 +140,7 @@ public class ThreadsAdmin extends javax.swing.JFrame {
             }
             @Override
             protected void done(){
-                
+                System.out.println("");
                 System.out.println(t5.getState());
             }
         }; //progressbarBD
