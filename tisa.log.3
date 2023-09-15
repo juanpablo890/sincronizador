@@ -1,0 +1,18 @@
+sep 14, 2023 12:56:19 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 2:38:58 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 2:39:18 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna dFechaHoraInsert no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getTimestamp(SQLServerResultSet.java:2677)
+	at MotorTISA$5.doInBackground(MotorTISA.java:334)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+

@@ -1,11 +1,23 @@
 
 import com.microsoft.sqlserver.jdbc.SQLServerResource;
 import controller.ConnectionDB;
+import controller.ConsultasSQL;
+import dao.DescargaAVLDAO;
+import dao.DescargaCARDDAO;
+import dao.DescargaOdometroDAO;
+import dao.DescargaPOSDAO;
+import dao.DescargaPagaBusDAO;
+import dao.DescargaTDEDAO;
+import java.awt.Color;
 //import controller.Logger;
 import java.awt.Dimension;
 import java.io.IOException;
+import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -15,35 +27,41 @@ import java.util.logging.SimpleFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import javax.swing.UIManager;
+import pojos.DescargaAVL;
+import pojos.DescargaCARD;
+import pojos.DescargaOdometro;
+import pojos.DescargaPOS;
+import pojos.DescargaPagaBus;
+import pojos.DescargaTDE;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author n6y
  */
-
-
-
 public class MotorTISA extends javax.swing.JFrame {
 
     /**
      * Creates new form MotorTISA
      */
-    Connection DBConnection;
-    Logger logger = Logger.getLogger(MotorTISA.class.getName());
+    private Connection DBConnection;
+    private ConnectionDB connectionDB;
+    private Logger logger = Logger.getLogger(MotorTISA.class.getName());
+
     public MotorTISA() throws IOException {
-        
+
         initComponents();
-        FileHandler fh = new FileHandler("tisa.log");
+        UIManager.put("nimbusOrange", new Color(38, 139, 210));
+        pgbtn.setVisible(false);
+        FileHandler fh = new FileHandler("tisa.log", true);
         fh.setFormatter(new SimpleFormatter());
         logger.addHandler(fh);
         logger.setLevel(Level.FINE);
- checkConnection();
-        
+        checkConnection();
+
     }
 
     /**
@@ -58,6 +76,8 @@ public class MotorTISA extends javax.swing.JFrame {
         jFrame1 = new javax.swing.JFrame();
         pgbtn = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        download_pb = new javax.swing.JProgressBar();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -88,7 +108,7 @@ public class MotorTISA extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Descargar");
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -96,6 +116,8 @@ public class MotorTISA extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        download_pb.setStringPainted(true);
 
         jMenu3.setText("Configuración");
 
@@ -130,20 +152,29 @@ public class MotorTISA extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(pgbtn)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jButton2)
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(pgbtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(download_pb, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2))))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(34, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addGap(55, 55, 55)
-                .addComponent(pgbtn)
+                .addGap(31, 31, 31)
+                .addComponent(download_pb, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pgbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -151,60 +182,316 @@ public class MotorTISA extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        System.out.println("clic");
-        jButton2.setEnabled(false);
+
         final SwingWorker worker = new SwingWorker() {
+            ResultSet rs;
+            int rsCont = 1;
+            int i = 1;
+
             @Override
-            protected Object doInBackground() throws InterruptedException  {
-                //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-                int i=0;
-                while(i<50){
-                    System.out.println("w1: "+i++);
-                    Thread.sleep(100000);
+            protected Object doInBackground() throws InterruptedException {
+                try {
+                    System.out.println("clic");
+                    int regCount = new ConsultasSQL(DBConnection).getRegCount();
+                    
+                    int cantReg = Integer.parseInt(connectionDB.getRecordsAmount().toString());
+                    System.out.println("cantidad de registros: " + cantReg);
+                    jButton2.setEnabled(false);
+                    CallableStatement prepareCallRegCounts = DBConnection.prepareCall("");
+                    System.out.println("ejecutando query...");
+
+                   
+                    
+                    
+                    
+                    
+                    String sqlsp = "exec [motor].[sp_carga_avl_to_intermedia] 'avlgprs'";
+                    String sqlsp_selects = "exec [motor].[sp_carga_avl_to_intermedia_selects] 'avlgprs' ";
+                    //CallableStatement prepareCall = DBConnection.prepareCall("exec [motor].sp_prueba");
+                    //CallableStatement prepareCall = DBConnection.prepareCall("select 'ope_recharge' as table_name" +" select * from [sfinx].[ope_transaction]"+ " select 'ope_transaction' as table_name"+ " select * FROM [motor].[config_motor_tisa]");
+
+                    String sql = "SELECT top 5000	id, intTipoAVL, strModemID, fLongitud_grad, fLatitud_grad, intVelocidad, intAltitud, intNum_Sat, intHeading, dFecha_Hora_SAT, intTipo_Evento,\n"
+                            + "				intVariable1, intVariable2, intVariable3, intVariable4, intVarControl, dFechaHoraComputadora\n"
+                            + "		FROM [AVL_GPRS].[AVL_GPRS].dbo.tblDescargasAVL \n"
+                            + "		order by id desc";
+                    CallableStatement prepareCall_insert = DBConnection.prepareCall(sqlsp);
+                    CallableStatement prepareCall = DBConnection.prepareCall(sqlsp_selects);
+//            CallableStatement prepareCall = DBConnection.prepareCall("SELECT TOP (5000) id INTO dbo.tmp_avl_ids\n" +
+//"			FROM [AVL_GPRS].[AVL_GPRS].dbo.tblDescargasAVL\n" +
+//"			ORDER BY id ASC" + " SELECT x.id, x.intTipoAVL, x.strModemID, x.fLongitud_grad, x.fLatitud_grad, x.intVelocidad, x.intAltitud, x.intNum_Sat, x.intHeading, x.dFecha_Hora_SAT, x.intTipo_Evento,\n" +
+//"				x.intVariable1, x.intVariable2, x.intVariable3, x.intVariable4, x.dFechaHoraComputadora\n" +
+//"		FROM [AVL_GPRS].[AVL_GPRS].dbo.tblDescargasAVL x");
+
+                    prepareCall_insert.execute();
+
+                    prepareCall.execute();
+                    PreparedStatement prepareStatement;
+                    download_pb.setMaximum(regCount);
+
+                    DescargaAVLDAO avlDAO = new DescargaAVLDAO();
+                    DescargaTDEDAO tdeDAO = new DescargaTDEDAO();
+                    DescargaCARDDAO cardDAO = new DescargaCARDDAO();
+                    DescargaPagaBusDAO pagabusDAO = new DescargaPagaBusDAO();
+                    DescargaPOSDAO posDAO = new DescargaPOSDAO();
+                    DescargaOdometroDAO odometroDAO = new DescargaOdometroDAO();
+
+//                        ResultSet resultSet = prepareCall.getResultSet();
+//                        System.out.println("rs: "+resultSet);
+//                        
+//                        resultSet.next();
+//                        System.out.println(resultSet.getLong(1));
+                    do {
+
+                        rs = prepareCall.getResultSet();
+
+                        System.out.println("rs: " + rsCont);
+                        switch (rsCont) {
+                            case 1: //AVL
+                                prepareStatement = DBConnection.prepareStatement(avlDAO.getSQL_INSERT());
+                                while (rs.next()) {
+
+                                    //System.out.println(rs.getLong(1));
+                                    DescargaAVL d = new DescargaAVL(
+                                            rs.getLong("id"),
+                                            rs.getInt("intTipoAVL"),
+                                            rs.getString("strModemID"),
+                                            rs.getDouble("fLongitud_grad"),
+                                            rs.getDouble("fLatitud_grad"),
+                                            rs.getInt("intVelocidad"),
+                                            rs.getInt("intAltitud"),
+                                            rs.getInt("intNum_Sat"),
+                                            rs.getInt("intHeading"),
+                                            rs.getTimestamp("dFecha_Hora_SAT"),
+                                            rs.getInt("intTipo_Evento"),
+                                            rs.getInt("intVariable1"),
+                                            rs.getInt("intVariable2"),
+                                            rs.getInt("intVariable3"),
+                                            rs.getInt("intVariable4"),
+                                            rs.getTimestamp("dFechaHoraComputadora"),
+                                            0,
+                                            0);
+
+                                    avlDAO.insert(d, DBConnection, prepareStatement);
+                                    download_pb.setValue(i);
+                                    jLabel1.setText("descargando registro: " + i + "/" + regCount);
+                                    prepareStatement.executeBatch();
+                                    i++;
+                                }
+                                break;
+
+                            case 2:
+                                prepareStatement = DBConnection.prepareStatement(tdeDAO.getSQL_INSERT());
+                                while (rs.next()) {
+                                    
+
+                                    //System.out.println(rs.getLong(1));
+                                    DescargaTDE d = new DescargaTDE(
+                                            rs.getLong("id_DGPRS"),
+                                            rs.getInt("intTipoFrame"),
+                                            rs.getInt("intSubidas_Pta1"),
+                                            rs.getInt("intBajadas_Pta1"),
+                                            rs.getInt("intBloqueos_Pta1"),
+                                            rs.getInt("intPablos_Pta1"),
+                                            rs.getInt("intSubidas_Pta2"),
+                                            rs.getInt("intBajadas_Pta2"),
+                                            rs.getInt("intBloqueos_Pta2"),
+                                            rs.getInt("intPablos_Pta2"),
+                                            rs.getInt("intNumOperador"),
+                                            rs.getInt("intBanderaLiquidacion"),
+                                            0,//rs.getInt("intVarControl"),
+                                            rs.getInt("intNumApagados_Pta1"),
+                                            rs.getInt("intNumApagados_Pta2"),
+                                            0,//rs.getInt("intId_Asignacion"),
+                                            0,
+                                            "",
+                                            rs.getTimestamp("dFechaHoraInsert"));
+
+                                    tdeDAO.insert(d, DBConnection, prepareStatement);
+                                    download_pb.setValue(i);
+                                    jLabel1.setText("descargando registro: " + i + "/" + regCount);
+                                    prepareStatement.executeBatch();
+                                    i++;
+                                }
+                                break;
+
+                            case 3:
+                                prepareStatement = DBConnection.prepareStatement(cardDAO.getSQL_INSERT());
+                                while (rs.next()) {
+                                    
+
+                                    //System.out.println(rs.getLong(1));
+                                    DescargaCARD d = new DescargaCARD(
+                                            rs.getLong("id"),
+                                            rs.getLong("id_DGPRS"),
+                                            rs.getString("strValidador"),
+                                            rs.getString("strIDTarjeta"),
+                                            rs.getInt("intTipoTarjeta"),
+                                            rs.getInt("intTipoEventoTarjeta"),
+                                            rs.getInt("intSaldoInicialTarjeta"),
+                                            rs.getInt("intSaldoFinalTarjeta"),
+                                            rs.getTimestamp("dFechaEventoTarjeta"),
+                                            rs.getInt("intIDPuntoVenta"),
+                                            rs.getInt("intFolioVenta"),
+                                            0,//rs.getInt("intVarControl"),
+                                            0,//rs.getInt("intStatus"),
+                                            rs.getTimestamp("dFechaAVL"),
+                                            rs.getInt("intNumOperador"),
+                                            rs.getInt("intFolioTarjeta"),
+                                            rs.getString("idFrameEvento"),
+                                            rs.getInt("intRuta"),
+                                            rs.getInt("intContadorCiclicoTrans"),
+                                            rs.getInt("intIDProducto"),
+                                            rs.getInt("intEntidad"),
+                                            rs.getString("strIDSAM"),
+                                            rs.getInt("intIdEvento"),
+                                            rs.getString("strUID"),
+                                            rs.getString("strConsecutivoSAM"),
+                                            rs.getString("strModem_ID"),
+                                            rs.getTimestamp("dFechaHoraInsert"));
+
+                                    cardDAO.insert(d, DBConnection, prepareStatement);
+                                    download_pb.setValue(i);
+                                    jLabel1.setText("descargando registro: " + i + "/" + regCount);
+                                    prepareStatement.executeBatch();
+                                    i++;
+                                }
+                                break;
+
+                            case 4:
+                                prepareStatement = DBConnection.prepareStatement(pagabusDAO.getSQL_INSERT());
+                                while (rs.next()) {
+                                    
+
+                                    //System.out.println(rs.getLong(1));
+                                    DescargaPagaBus d = new DescargaPagaBus(
+                                            rs.getLong("id_DGPRS"),
+                                            rs.getBigDecimal("dTotalEfectivoRegistrado"),
+                                            rs.getBigDecimal("dTotalVentas"),
+                                            rs.getBigDecimal("dTotalVentasTarifa0"),
+                                            rs.getBigDecimal("dTotalVentasTarifa1"),
+                                            rs.getBigDecimal("dTotalVentasTarifa2"),
+                                            rs.getBigDecimal("dTotalVentasTarifa3"),
+                                            rs.getBigDecimal("dTotalVentasTarifa4"),
+                                            rs.getBigDecimal("dTotalVentasTarifa5"),
+                                            rs.getBigDecimal("dTotalVentasTarifa6"),
+                                            rs.getBigDecimal("dTotalVentasTarifa7"),
+                                            rs.getBigDecimal("dTotalVentasTarifa8"),
+                                            rs.getBigDecimal("dTotalVentasTarifa9"),
+                                            rs.getTimestamp("dFechaHoraEnvio"),
+                                            rs.getString("strModem_ID"),
+                                            rs.getTimestamp("dFechaHoraInsert"),
+                                            rs.getInt("intContadorCiclico"));
+
+                                    pagabusDAO.insert(d, DBConnection, prepareStatement);
+                                    download_pb.setValue(i);
+                                    jLabel1.setText("descargando registro: " + i + "/" + regCount);
+                                    prepareStatement.executeBatch();
+                                    i++;
+                                }
+                                break;
+
+                            case 5:
+                                prepareStatement = DBConnection.prepareStatement(posDAO.getSQL_INSERT());
+                                while (rs.next()) {
+                                    
+
+                                    //System.out.println(rs.getLong(1));
+                                    DescargaPOS d = new DescargaPOS(
+                                            rs.getLong("id"),
+                                            rs.getLong("id_DGPRS"),
+                                            rs.getString("strValidador"),
+                                            rs.getString("strIDTarjeta"),
+                                            rs.getInt("intTipoTarjeta"),
+                                            rs.getInt("intTipoEventoTarjeta"),
+                                            rs.getInt("intSaldoInicialTarjeta"),
+                                            rs.getInt("intSaldoFinalTarjeta"),
+                                            rs.getTimestamp("dFechaEventoTarjeta"),
+                                            rs.getInt("intIDPuntoVenta"),
+                                            rs.getInt("intFolioVenta"),
+                                            0, //rs.getInt("intVarControl"),
+                                            0, //rs.getInt("intStatus"),
+                                            rs.getTimestamp("dFechaAVL"),
+                                            rs.getInt("intNumOperador"),
+                                            rs.getInt("intFolioTarjeta"),
+                                             rs.getString("idFrameEvento"),
+                                            rs.getInt("intRuta"),
+                                            rs.getInt("intContadorCiclicoTrans"),
+                                            rs.getInt("intIDProducto"),
+                                            rs.getInt("intEntidad"),
+                                            rs.getString("strIDSAM"),
+                                             rs.getInt("intIdEvento"),
+                                            rs.getInt("IntSaldoUltimaRecarga"),
+                                            rs.getTimestamp("DtRecarga"),
+                                             rs.getBoolean("BErrorRecarga"),
+                                            rs.getBoolean("BEsVenta"),
+                                             rs.getString("GuidUsuario"),
+                                            rs.getBoolean("BOffline"),
+                                             rs.getString("GuidFolio"),
+                                            rs.getBigDecimal("MSaldoPOSAnterior"),
+                                            rs.getString("strUID"),
+                                            rs.getString("strCSAM"),
+                                             rs.getInt("intContadorCiclico"),
+                                            rs.getString("strModem_ID"),
+                                            rs.getTimestamp("dFechaHoraInsert"));
+
+                                    posDAO.insert(d, DBConnection, prepareStatement);
+                                    download_pb.setValue(i);
+                                    jLabel1.setText("descargando registro: " + i + "/" + regCount);
+                                    prepareStatement.executeBatch();
+                                    i++;
+                                }
+                                break;
+
+                            case 6:
+                                prepareStatement = DBConnection.prepareStatement(odometroDAO.getSQL_INSERT());
+                                while (rs.next()) {
+                                    
+
+                                    //System.out.println(rs.getLong(1));
+                                    DescargaOdometro d = new DescargaOdometro(
+                                            rs.getLong("id_DGPRS"),
+                                            rs.getLong("bintOdometro"),
+                                            rs.getString("strModemID"),
+                                            rs.getInt("intVarControl"));
+
+                                    odometroDAO.insert(d, DBConnection, prepareStatement);
+                                    download_pb.setValue(i);
+                                    jLabel1.setText("descargando registro: " + i + "/" + regCount);
+                                    prepareStatement.executeBatch();
+                                    i++;
+                                }
+                                break;
+
+                            default:
+                        }
+
+                        rsCont++;
+                    } while (prepareCall.getMoreResults());
+                    
+
+                } catch (SQLException ex) {
+                    Logger.getLogger(MotorTISA.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 return null;
-                
-            }
-        };
-        worker.execute();
-        final SwingWorker worker2 = new SwingWorker() {
-            @Override
-            protected Object doInBackground() throws InterruptedException  {
-                //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-                int i=0;
-                while(i<50){
-                    System.out.println("w2: "+i++);
-                    Thread.sleep(100000);
-                }
-                return null;   
+
             }
 
             @Override
             protected void done() {
+                System.out.println("fin proceso...");
                 jButton2.setEnabled(true);
             }
-            
         };
-        worker2.execute();
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                try {
-//                    Thread.sleep(100000);
-//                } catch (InterruptedException ex) {
-//                    Logger.getLogger(MotorTISA.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//                new Configuration().setVisible(true);
-//                
-//            }
-//        });
+        worker.execute();
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               
+
                 new Configuration().setVisible(true);
-                
+
             }
         });
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -229,37 +516,29 @@ public class MotorTISA extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void checkConnection() throws IOException{
+    private void checkConnection() throws IOException {
         System.out.println("conectar a BD...");
-        
-        
-        
-        System.out.println();
-        
+
+        System.out.println("logger: " + logger.getName());
+        connectionDB = new ConnectionDB();
         //logger = Logger.getLogger(getClass().getName());
-        
- 
-           
-       
-        
         try {
-            
-            DBConnection = new ConnectionDB().DBConnection(); //conectar a BD por default
-            logger.fine("conexion realizada");    
+
+            DBConnection = connectionDB.DBConnection(); //conectar a BD por default
+
+            logger.fine("conexion realizada");
         } catch (IOException ex) {
-            
+
             JOptionPane.showMessageDialog(rootPane, "El archivo de configuración de BD por defecto no existe!", "archivo de configuración no encontrado", JOptionPane.ERROR_MESSAGE);
-            Logger.getLogger(MotorTISA.class.getName()).log(Level.SEVERE, "archivo properties inexistente", ex);
+            logger.log(Level.SEVERE, "archivo properties inexistente", ex);
         } catch (SQLException ex) {
-            Logger.getLogger(MotorTISA.class.getName()).log(Level.SEVERE, "error al conectar a la base de datos", ex);
-            UIManager.put("OptionPane.minimumSize",new Dimension(100,100));
+            logger.log(Level.SEVERE, "error al conectar a la base de datos", ex);
+            UIManager.put("OptionPane.minimumSize", new Dimension(100, 100));
             JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "error de configuración de conexión a base de datos", JOptionPane.ERROR_MESSAGE);
 
-           
         }
     }
-    
-    
+
     /**
      * @param args the command line arguments
      */
@@ -323,10 +602,10 @@ public class MotorTISA extends javax.swing.JFrame {
             @Override
             public void run() {
                 try {
-                    
+
                     MotorTISA motorTISA = new MotorTISA();
                     motorTISA.setVisible(true);
-                    
+
                 } catch (IOException ex) {
                     Logger.getLogger(MotorTISA.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -339,12 +618,14 @@ public class MotorTISA extends javax.swing.JFrame {
 //            }
 //        });
 //        thread.start();
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JProgressBar download_pb;
     private javax.swing.JButton jButton2;
     private javax.swing.JFrame jFrame1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar2;

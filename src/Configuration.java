@@ -45,7 +45,7 @@ public class Configuration extends javax.swing.JFrame {
         initComponents();
         UIManager.put("nimbusOrange", new Color(38, 139, 210));
         try {
-            conn = new ConnectionDB().DBConnection("192.168.1.206", "1433", "DBINTERMEDIA", "user_motor", "Mot0r.Tis4"); //conectarse a la BD DBINTERMEDIA para obtener el catálogo de conexiones almacenadas
+            conn = new ConnectionDB().DBConnection("sqlserver","192.168.1.206", "1433", "DBINTERMEDIA", "user_motor", "Mot0r.Tis4"); //conectarse a la BD DBINTERMEDIA para obtener el catálogo de conexiones almacenadas
         HashMap properties = null;
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("SELECT * FROM motor.config_motor_tisa");
@@ -115,6 +115,8 @@ public class Configuration extends javax.swing.JFrame {
         records_amount = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
+        sgbd = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("seleccionar base de datos por defecto");
@@ -162,6 +164,8 @@ public class Configuration extends javax.swing.JFrame {
 
         jLabel8.setText("cantidad de registros");
 
+        jLabel9.setText("SGBD:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -188,17 +192,21 @@ public class Configuration extends javax.swing.JFrame {
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel6))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(aliasList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(port, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(default_connection))
-                                        .addComponent(dbname, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(username, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(password, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(servername, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(port, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(default_connection))
+                                    .addComponent(dbname)
+                                    .addComponent(username)
+                                    .addComponent(password)
+                                    .addComponent(servername, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(aliasList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel9)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(sgbd, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
@@ -218,7 +226,9 @@ public class Configuration extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(aliasList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(sgbd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
                 .addGap(12, 12, 12)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -251,7 +261,7 @@ public class Configuration extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(frecuency, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addComponent(records_amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -285,12 +295,12 @@ public class Configuration extends javax.swing.JFrame {
             cancel.setEnabled(false);
 //jProgressBar1.setValue(this.getProgress());
             try {
-                 //obtener los datos de conexiión de los campos del formulario para probar la conexión
-                    DBConnection = connectionDB.DBConnection(servername.getText(), port.getText(), dbname.getText(), username.getText(), String.valueOf(password.getPassword()));
+                 //obtener los datos de conexión de los campos del formulario para probar la conexión
+                    DBConnection = connectionDB.DBConnection(sgbd.getText(), servername.getText(), port.getText(), dbname.getText(), username.getText(), String.valueOf(password.getPassword()));
                     jProgressBar1.setIndeterminate(false);
                 jProgressBar1.setValue(100);
                 if (JOptionPane.showConfirmDialog(rootPane, "¿Está seguro que desea guardar los cambios?") == JOptionPane.OK_OPTION) {
-                    new ConfigurationFile().createConfigurationFile(dbname.getText(), username.getText(), password.getPassword(), servername.getText(), Integer.parseInt(port.getText()),Integer.parseInt(frecuency.getText()),Integer.parseInt(records_amount.getText()));
+                    new ConfigurationFile().createConfigurationFile(dbname.getText(), username.getText(), password.getPassword(), servername.getText(), Integer.parseInt(port.getText()),Integer.parseInt(frecuency.getText()),Integer.parseInt(records_amount.getText()),sgbd.getText());
                     JOptionPane.showMessageDialog(rootPane, "configuración guardada exitosamente!");
                     DBConnection.close();
 //                    owner.dispose();
@@ -309,7 +319,7 @@ public class Configuration extends javax.swing.JFrame {
 
         } else {
             try {
-                new ConfigurationFile().createConfigurationFile(dbname.getText(), username.getText(), password.getPassword(), servername.getText(), Integer.parseInt(port.getText()), Integer.parseInt(frecuency.getText()), Integer.parseInt(records_amount.getText()));
+                new ConfigurationFile().createConfigurationFile(dbname.getText(), username.getText(), password.getPassword(), servername.getText(), Integer.parseInt(port.getText()), Integer.parseInt(frecuency.getText()), Integer.parseInt(records_amount.getText()), sgbd.getText());
                 JOptionPane.showMessageDialog(rootPane, "configuración guardada exitosamente!");
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(rootPane, "error al crear archivo de configuración", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -339,7 +349,7 @@ public class Configuration extends javax.swing.JFrame {
         System.out.println("cancelar proceso...");
 //        worker.stop();
 //        System.out.println(worker.getState());
-        
+        this.dispose();
         
         
     }//GEN-LAST:event_cancelActionPerformed
@@ -357,6 +367,7 @@ public class Configuration extends javax.swing.JFrame {
             port.setText(String.valueOf(executeQuery.getInt("port")));
             frecuency.setText(executeQuery.getString("synchronization_frec_segs"));
             records_amount.setText(executeQuery.getString("records_amount"));
+            sgbd.setText(executeQuery.getString("sgbd"));
         } catch (SQLException ex) {
             Logger.getLogger(Configuration.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -414,6 +425,7 @@ public class Configuration extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -422,6 +434,7 @@ public class Configuration extends javax.swing.JFrame {
     private javax.swing.JTextField port;
     private javax.swing.JTextField records_amount;
     private javax.swing.JTextField servername;
+    private javax.swing.JTextField sgbd;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

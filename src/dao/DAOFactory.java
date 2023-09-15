@@ -159,8 +159,8 @@ public abstract class DAOFactory<T> {
         List<T> list = null;
         try {
             connection = getConnection();
-            statement = connection.prepareStatement(modifyQuery(sql));
-            System.out.println("sql modified: " + modifyQuery(sql));
+//            statement = connection.prepareStatement(modifyQuery(sql));
+//            System.out.println("sql modified: " + modifyQuery(sql));
 //            Statement cs = connection.createStatement();
             System.out.println("statement: " + statement.toString());
             System.out.println("values... " + Arrays.toString(values));
@@ -417,6 +417,6 @@ public abstract class DAOFactory<T> {
 
     abstract T convertDbToOjb(ResultSet resultSet) throws SQLException;
 
-    abstract String modifyQuery(String sql);
+    //abstract String modifyQuery(String sql);
 
 }

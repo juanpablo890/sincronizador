@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Properties;
 
 public class ConfigurationFile {
-    public void createConfigurationFile(String database, String username, char[] password, String server, int port, int frecuency, int records_amount) throws IOException{
+    public void createConfigurationFile(String database, String username, char[] password, String server, int port, int frecuency, int records_amount, String sgbd) throws IOException{
         Properties proper = new Properties();
         BufferedWriter bw = Files.newBufferedWriter(Path.of("config.properties"));
         proper.setProperty("database", database);
@@ -29,6 +29,7 @@ public class ConfigurationFile {
         proper.setProperty("port", String.valueOf(port));
         proper.setProperty("syncronization_frec", String.valueOf(frecuency));
         proper.setProperty("records_amount", String.valueOf(records_amount));
+        proper.setProperty("sgbd", sgbd);
         proper.store(bw, "archivo de configuración de conexión a la base de datos");
     }
     
@@ -37,7 +38,7 @@ public class ConfigurationFile {
         Properties proper = new Properties();
         BufferedReader br = Files.newBufferedReader(Path.of("config.properties"));
         proper.load(br);
-        HashMap hashMap = new HashMap();
+        HashMap<String, Object> hashMap = new HashMap();
         hashMap.put("database", proper.get("database"));
         hashMap.put("username", proper.get("username"));
         hashMap.put("password", proper.get("password"));
@@ -45,6 +46,7 @@ public class ConfigurationFile {
         hashMap.put("port", proper.get("port"));
         hashMap.put("syncronization_frec", proper.get("syncronization_frec"));
         hashMap.put("records_amount", proper.get("records_amount"));
+        hashMap.put("sgbd", proper.get("sgbd"));
         return hashMap;
     }
 }

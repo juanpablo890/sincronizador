@@ -1,12 +1,24 @@
 
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import controller.ConnectionDB;
+import dao.DAOException;
+import dao.OPETransactionImplDAO;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.concurrent.Executor;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
+import pojos.OPETransaction;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -22,19 +34,22 @@ public class ThreadsAdmin extends javax.swing.JFrame {
      * Creates new form ThreadsAdmin
      */
     SwingWorker t1, t2, t3, t4, t5, t6;
+    Connection DBConnection;
+    int i = 0;
+    boolean stop = false;
 
     public ThreadsAdmin() {
         initComponents();
         t1 = new SwingWorker() {
             @Override
-            protected Object doInBackground()  {
+            protected Object doInBackground() {
                 try {
                     int i = 0;
                     Thread.sleep(1000);
                     jLabel1.setText(String.valueOf(t1.getState()));
                     while (i < 100) {
                         jProgressBar1.setValue(i++);
-                        
+
                         Thread.sleep(1000);
                     }
                 } catch (InterruptedException ex) {
@@ -42,14 +57,15 @@ public class ThreadsAdmin extends javax.swing.JFrame {
                 }
                 return null;
             }
+
             @Override
-            protected void done(){
+            protected void done() {
                 jLabel1.setText(String.valueOf(t1.getState()));
             }
         };
         t2 = new SwingWorker() {
             @Override
-            protected Object doInBackground()  {
+            protected Object doInBackground() {
                 try {
                     int i = 0;
                     Thread.sleep(1000);
@@ -62,16 +78,17 @@ public class ThreadsAdmin extends javax.swing.JFrame {
                     Logger.getLogger(ThreadsAdmin.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 return null;
-        
+
             }
+
             @Override
-            protected void done(){
+            protected void done() {
                 jLabel2.setText(String.valueOf(t2.getState()));
             }
         };
         t3 = new SwingWorker() {
             @Override
-            protected Object doInBackground()  {
+            protected Object doInBackground() {
                 try {
                     int i = 0;
                     Thread.sleep(1000);
@@ -84,20 +101,21 @@ public class ThreadsAdmin extends javax.swing.JFrame {
                 } catch (InterruptedException ex) {
                     Logger.getLogger(ThreadsAdmin.class.getName()).log(Level.SEVERE, null, ex);
                     Thread.interrupted();
-                    System.out.println("hilo 3 interrumpido"+ Thread.interrupted());
+                    System.out.println("hilo 3 interrumpido" + Thread.interrupted());
                 }
                 return null;
-                
+
             }
+
             @Override
-            protected void done(){
+            protected void done() {
                 jLabel3.setText(String.valueOf(t3.getState()));
-                System.out.println("hilo 3 interrumpido"+ Thread.interrupted());
+                System.out.println("hilo 3 interrumpido" + Thread.interrupted());
             }
         };
         t4 = new SwingWorker() {
             @Override
-            protected Object doInBackground(){
+            protected Object doInBackground() {
                 try {
                     int i = 0;
                     Thread.sleep(1000);
@@ -111,56 +129,150 @@ public class ThreadsAdmin extends javax.swing.JFrame {
                 }
                 return null;
             }
+
             @Override
-            protected void done(){
-                System.out.println("name: "+Thread.currentThread().getName());
+            protected void done() {
+                System.out.println("name: " + Thread.currentThread().getName());
                 System.out.println(Thread.interrupted());
                 jLabel4.setText(String.valueOf(t4.getState()));
-                
+
             }
-        }; 
+        };
         //BD connection
         t5 = new SwingWorker() {
             @Override
             protected Object doInBackground() {
+                long num = 0;
                 try {
-                    int i = 0;
+
                     Thread.sleep(1000);
-                    t6.execute();
+
                     jLabel5.setText(String.valueOf(t5.getState()));
-                    Connection DBConnection = new ConnectionDB().DBConnection("", "", "", "", "");
+//                    DBConnection = new ConnectionDB().DBConnection("sqlserver","192.168.1.206", "1433", "SIGOWEBHISTORICO", "sa", "T1sa.Pr0d.DB");
+                    DBConnection = new ConnectionDB().DBConnection("sqlserver", "192.168.1.206", "1433", "DBINTERMEDIA", "user_motor", "Mot0r.Tis4");
+                    //Statement createStatement = DBConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                    Statement createStatement = DBConnection.createStatement();
+                    System.out.println("ejecutando query...");
+                    //createStatement.executeQuery("SELECT * FROM [SIGOWEBHISTORICO].[dbo].[tblDescargasAVL]; ");
+                    createStatement.execute("select * FROM [motor].[config_motor_tisa]" + "select id, database_alias as db_alias FROM [motor].[config_motor_tisa] where database_alias = 'sfinx'");
+                    CallableStatement prepareCall = DBConnection.prepareCall("exec [motor].[sp_carga_avl_to_intermedia] 'avlgprs'");
+                    //CallableStatement prepareCall = DBConnection.prepareCall("select 'ope_recharge' as table_name" +" select * from [sfinx].[ope_transaction]"+ " select 'ope_transaction' as table_name"+ " select * FROM [motor].[config_motor_tisa]");
+                    //CallableStatement prepareCall = DBConnection.prepareCall("SELECT * [AVL_GPRS].[AVL_GPRS].dbo.tblDescargasOdometro");
+                    prepareCall.execute();
+                    jProgressBar5.setMaximum(4929797);
+//t6.execute();
+//
+//                    ResultSet resultSet = createStatement.getResultSet(); 
+//                    while(resultSet.next()){
+//                        System.out.println(resultSet.getString(2));
+//                    }
+//                    System.out.println("more? "+createStatement.getMoreResults());
+//                    ResultSet resultSet2 = createStatement.getResultSet();
+//                    while(resultSet2.next()){
+//                        System.out.println(resultSet2.getString(2));
+//                    }
+
+                    ResultSet rs;
+//                    while (createStatement.getMoreResults()) {
+//                        rs = createStatement.getResultSet();
+//                        while(rs.next()){
+//                            System.out.println(rs.getString(2));
+//                        }
+//                    }
+                    int i = 1;
+                    int cant = 0;
+                    do{
+                        System.out.println("rs: "+i);
+                        rs = prepareCall.getResultSet();
+//                        if(columnName.equals("ope_recharge")){
+                            while(rs.next())
+                        System.out.println(rs.getLong(1));
+//                        }
+                        
+                        i++;
+                    }while(prepareCall.getMoreResults());
+//                    do {
+//                        rs = prepareCall.getResultSet();
+//                        System.out.println("rs: " + i++);
+//                       
+//                        System.out.println(rs.getString("table_name")); 
+//
+//obtener nombre de tabla antes de iterar cada registro
+//                        while (rs.next()) { //iterar por cada registro
+//                            System.out.println("table name: "+metaData.getCatalogName(1));
+//                            System.out.println(rs.getString(1)); 
+//                            
+//                            
+//                            switch("ope_transaction"){
+//                                case "ope_transaction":
+//                                    OPETransaction t = new OPETransaction(rs.getLong("id"), rs.getLong("collection_id"), rs.getString("transaction_type"), 
+//                                            rs.getString("transaction_folio"), rs.getString("event_date"), rs.getString("card_uid"), 
+//                                            rs.getString("product"), rs.getString("ruta"), rs.getBigDecimal("amount"), rs.getString("ini_vig_prod"), 
+//                                            rs.getString("fin_vig_prod"), rs.getString("ini_val_day"), rs.getString("fin_val_day"), rs.getDouble("initial_balance"), 
+//                                            rs.getDouble("final_balance"), rs.getString("station_id"), rs.getString("uid_sam"), 
+//                                            rs.getLong("consecutive_sam"), rs.getLong("consecutive_app"), 
+//                                            rs.getDouble("latitude"), rs.getDouble("longitude"), rs.getString("recharge_type"), 
+//                                            rs.getString("debit_type"), rs.getString("sign_parameters"), rs.getString("sign_transaction"), 
+//                                            rs.getString("device_id"), rs.getLong("profile_code"), rs.getString("created_at"), 
+//                                            rs.getString("updated_at"), rs.getBoolean("status"), rs.getString("previous_card"));
+//                                {
+//                                    try {
+//                                        long timeIni = System.currentTimeMillis();
+//                                        new OPETransactionImplDAO().create(t);
+//                                        long timeFin = System.currentTimeMillis();
+//                                        long timep = timeFin - timeIni;
+//                                        System.out.println("tiempo de procesamiento (segs)"+timep/1000);
+//                                    } catch (DAOException ex) {
+//                                        Logger.getLogger(ThreadsAdmin.class.getName()).log(Level.SEVERE, null, ex);
+//                                    } catch (IOException ex) {
+//                                        Logger.getLogger(ThreadsAdmin.class.getName()).log(Level.SEVERE, null, ex);
+//                                    }
+//                                }
+//                                    break;
+//
+//                            }
+//
+//cant++;
+//                        }
+//                    } while (prepareCall.getMoreResults()); //iterar por cada tabla (result set)
+                    
+
                 } catch (InterruptedException ex) {
                     Logger.getLogger(ThreadsAdmin.class.getName()).log(Level.SEVERE, null, ex);
                     System.out.println("hilo interrumpido");
+
                 } catch (SQLException ex) {
                     Logger.getLogger(ThreadsAdmin.class.getName()).log(Level.SEVERE, null, ex);
                     JOptionPane.showMessageDialog(rootPane, "error al conectar", "", JOptionPane.ERROR_MESSAGE);
                 }
                 return null;
             }
+
             @Override
-            protected void done(){
-                System.out.println("");
+            protected void done() {
+                System.out.println("hilo en DONE");
                 System.out.println(t5.getState());
+                try {
+                    new ConnectionDB().abortConnection(DBConnection);
+                    System.out.println("conexion abortada");
+                    stop = true;
+                } catch (SQLException ex) {
+                    Logger.getLogger(ThreadsAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }; //progressbarBD
         t6 = new SwingWorker() {
             @Override
             protected Object doInBackground() {
-                try {
-                    int i = 0;
-                    
-                    while (i <= 30) {
-                        jProgressBar5.setValue(i++);
-                        System.out.println("corriendo progress bar bd..."+t5.getState());
-                        Thread.sleep(1000);
-                    }
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(ThreadsAdmin.class.getName()).log(Level.SEVERE, null, ex);
+
+                while (i <= jProgressBar5.getMaximum()) {
+                    jProgressBar5.setValue(i);
+//                    System.out.println("corriendo progress bar bd..."+t5.getState());
+
                 }
-                return null;  
+                return null;
             }
-            
+
         };
     }
 
@@ -430,6 +542,7 @@ public class ThreadsAdmin extends javax.swing.JFrame {
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         jButton10.setEnabled(false);
         t5.cancel(true);
+
         jLabel5.setText(String.valueOf(t5.getState()));
     }//GEN-LAST:event_jButton10ActionPerformed
 

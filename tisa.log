@@ -1,2 +1,977 @@
-sep 08, 2023 3:46:40 P. M. MotorTISA checkConnection
+sep 11, 2023 5:28:50 P. M. MotorTISA checkConnection
+SEVERE: archivo properties inexistente
+java.nio.file.NoSuchFileException: config.properties
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:235)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:370)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:421)
+	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:420)
+	at java.base/java.nio.file.Files.newInputStream(Files.java:155)
+	at java.base/java.nio.file.Files.newBufferedReader(Files.java:2838)
+	at java.base/java.nio.file.Files.newBufferedReader(Files.java:2870)
+	at controller.ConfigurationFile.readConfigurationFile(ConfigurationFile.java:39)
+	at controller.ConnectionDB.DBConnection(ConnectionDB.java:21)
+	at MotorTISA.checkConnection(MotorTISA.java:247)
+	at MotorTISA.<init>(MotorTISA.java:45)
+	at MotorTISA$9.run(MotorTISA.java:327)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+
+sep 11, 2023 5:29:57 P. M. MotorTISA checkConnection
+SEVERE: archivo properties inexistente
+java.nio.file.NoSuchFileException: config.properties
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:235)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:370)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:421)
+	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:420)
+	at java.base/java.nio.file.Files.newInputStream(Files.java:155)
+	at java.base/java.nio.file.Files.newBufferedReader(Files.java:2838)
+	at java.base/java.nio.file.Files.newBufferedReader(Files.java:2870)
+	at controller.ConfigurationFile.readConfigurationFile(ConfigurationFile.java:39)
+	at controller.ConnectionDB.DBConnection(ConnectionDB.java:21)
+	at MotorTISA.checkConnection(MotorTISA.java:247)
+	at MotorTISA.<init>(MotorTISA.java:45)
+	at MotorTISA$9.run(MotorTISA.java:327)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+
+sep 11, 2023 5:30:23 P. M. MotorTISA checkConnection
+SEVERE: archivo properties inexistente
+java.nio.file.NoSuchFileException: config.properties
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:235)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:370)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:421)
+	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:420)
+	at java.base/java.nio.file.Files.newInputStream(Files.java:155)
+	at java.base/java.nio.file.Files.newBufferedReader(Files.java:2838)
+	at java.base/java.nio.file.Files.newBufferedReader(Files.java:2870)
+	at controller.ConfigurationFile.readConfigurationFile(ConfigurationFile.java:39)
+	at controller.ConnectionDB.DBConnection(ConnectionDB.java:21)
+	at MotorTISA.checkConnection(MotorTISA.java:247)
+	at MotorTISA.<init>(MotorTISA.java:45)
+	at MotorTISA$9.run(MotorTISA.java:327)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+
+sep 11, 2023 5:31:54 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 11, 2023 6:37:48 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 12, 2023 10:29:43 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 12, 2023 12:11:47 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 12, 2023 5:32:34 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 12, 2023 5:37:30 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 10:44:57 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 10:47:37 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 10:51:22 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 2:32:31 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 2:57:38 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 2:58:38 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:01:35 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:02:38 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:04:01 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:09:29 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:26:46 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:29:45 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:31:46 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:32:13 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:34:37 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:35:13 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:35:47 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:36:53 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:37:30 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:37:50 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:38:47 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:39:26 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:39:39 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:40:47 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:43:23 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:45:41 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:46:29 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:47:45 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:48:14 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:48:54 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:49:27 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:52:12 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:53:09 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:53:31 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:56:37 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:57:31 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 3:59:23 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:00:25 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:03:56 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:04:02 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: Error al convertir el valor varchar al tipo de datos JDBC BIGINT.
+	at com.microsoft.sqlserver.jdbc.DDC.convertStreamToObject(DDC.java:816)
+	at com.microsoft.sqlserver.jdbc.ServerDTVImpl.getValue(dtv.java:3751)
+	at com.microsoft.sqlserver.jdbc.DTV.getValue(dtv.java:248)
+	at com.microsoft.sqlserver.jdbc.Column.getValue(Column.java:190)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getValue(SQLServerResultSet.java:2105)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getValue(SQLServerResultSet.java:2091)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getLong(SQLServerResultSet.java:2401)
+	at MotorTISA$5.doInBackground(MotorTISA.java:209)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NumberFormatException: For input string: "tblDescargasAVL"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Long.parseLong(Long.java:692)
+	at java.base/java.lang.Long.valueOf(Long.java:1144)
+	at com.microsoft.sqlserver.jdbc.DDC.convertStringToObject(DDC.java:562)
+	at com.microsoft.sqlserver.jdbc.DDC.convertStreamToObject(DDC.java:801)
+	... 13 more
+
+sep 13, 2023 4:04:21 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:04:22 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna id no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getLong(SQLServerResultSet.java:2410)
+	at MotorTISA$5.doInBackground(MotorTISA.java:210)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 13, 2023 4:05:34 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:05:42 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:05:44 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna intVarControl no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getInt(SQLServerResultSet.java:2392)
+	at MotorTISA$5.doInBackground(MotorTISA.java:226)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 13, 2023 4:06:21 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:06:26 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El índice 0 está fuera de intervalo.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.verifyValidColumnIndex(SQLServerResultSet.java:625)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getterGetColumn(SQLServerResultSet.java:2076)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getValue(SQLServerResultSet.java:2105)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getValue(SQLServerResultSet.java:2091)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getInt(SQLServerResultSet.java:2383)
+	at MotorTISA$5.doInBackground(MotorTISA.java:226)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 13, 2023 4:06:46 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:08:59 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:12:11 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:25:40 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:27:47 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:30:01 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:31:02 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:31:05 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: Invalid object name 'motor.config_motor_tisa'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1695)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:920)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:814)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7675)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:4137)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:272)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:246)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:787)
+	at MotorTISA$5.doInBackground(MotorTISA.java:185)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 13, 2023 4:31:35 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: Invalid object name 'motor.config_motor_tisa'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1695)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:920)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:814)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7675)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:4137)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:272)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:246)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:787)
+	at MotorTISA$5.doInBackground(MotorTISA.java:185)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 13, 2023 4:31:47 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: Invalid object name 'motor.config_motor_tisa'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1695)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:920)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:814)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7675)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:4137)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:272)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:246)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:787)
+	at MotorTISA$5.doInBackground(MotorTISA.java:185)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 13, 2023 4:32:04 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:32:13 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:32:52 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:33:52 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:37:09 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:38:09 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:38:59 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:40:33 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:41:50 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:43:28 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:45:05 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:46:25 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:47:35 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:53:50 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:54:13 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:54:14 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: Could not find stored procedure 'motor.sp_carga_avl_to_intermedia'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1695)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:648)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:567)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7675)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:4137)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:272)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:246)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.execute(SQLServerPreparedStatement.java:544)
+	at MotorTISA$5.doInBackground(MotorTISA.java:195)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 13, 2023 4:54:26 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:54:37 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: Could not find stored procedure 'motor.sp_carga_avl_to_intermedia'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1695)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:648)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:567)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7675)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:4137)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:272)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:246)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.execute(SQLServerPreparedStatement.java:544)
+	at MotorTISA$5.doInBackground(MotorTISA.java:195)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 13, 2023 4:54:44 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: Could not find stored procedure 'motor.sp_carga_avl_to_intermedia'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1695)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:648)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:567)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7675)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:4137)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:272)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:246)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.execute(SQLServerPreparedStatement.java:544)
+	at MotorTISA$5.doInBackground(MotorTISA.java:195)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 13, 2023 4:58:26 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:58:39 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 4:58:39 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+org.postgresql.util.PSQLException: ERROR: syntax error at or near "exec"
+  Position: 1
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190)
+	at org.postgresql.jdbc.PgCallableStatement.executeWithFlags(PgCallableStatement.java:84)
+	at org.postgresql.jdbc.PgPreparedStatement.execute(PgPreparedStatement.java:177)
+	at MotorTISA$5.doInBackground(MotorTISA.java:201)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 13, 2023 4:58:52 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:02:38 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:02:40 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:03:39 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:03:40 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:04:26 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:04:29 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:05:05 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:05:06 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:05:57 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:06:01 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:06:13 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:06:15 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:08:59 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:09:00 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:09:17 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:11:36 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:11:39 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:11:39 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El conjunto de resultados no tiene fila actual.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.verifyResultSetHasCurrentRow(SQLServerResultSet.java:588)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getterGetColumn(SQLServerResultSet.java:2074)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getValue(SQLServerResultSet.java:2105)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getValue(SQLServerResultSet.java:2091)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getLong(SQLServerResultSet.java:2410)
+	at MotorTISA$5.doInBackground(MotorTISA.java:210)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 13, 2023 5:12:02 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:12:03 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:12:39 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:12:52 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:12:53 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:12:54 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El conjunto de resultados no tiene fila actual.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.verifyResultSetHasCurrentRow(SQLServerResultSet.java:588)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getterGetColumn(SQLServerResultSet.java:2074)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getValue(SQLServerResultSet.java:2105)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getValue(SQLServerResultSet.java:2091)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getLong(SQLServerResultSet.java:2410)
+	at MotorTISA$5.doInBackground(MotorTISA.java:210)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 13, 2023 5:13:12 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:13:16 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:13:57 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:13:59 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:14:55 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:14:59 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:17:22 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:18:43 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:20:28 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:27:31 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:33:17 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:35:34 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:36:23 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:36:50 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:37:27 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:39:01 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:39:48 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:46:52 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:46:54 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El conjunto de resultados está cerrado.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.checkClosed(SQLServerResultSet.java:493)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.next(SQLServerResultSet.java:1042)
+	at MotorTISA$5.doInBackground(MotorTISA.java:204)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 13, 2023 5:47:33 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:48:58 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:50:13 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:50:15 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El conjunto de resultados no tiene fila actual.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.verifyResultSetHasCurrentRow(SQLServerResultSet.java:588)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getterGetColumn(SQLServerResultSet.java:2074)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getValue(SQLServerResultSet.java:2105)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getValue(SQLServerResultSet.java:2091)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getLong(SQLServerResultSet.java:2401)
+	at MotorTISA$5.doInBackground(MotorTISA.java:205)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 13, 2023 5:50:38 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:51:29 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:52:02 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:53:10 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:54:17 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:55:24 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:55:51 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:56:25 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 5:57:44 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:01:49 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:03:09 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:03:11 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna intVarControl no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getInt(SQLServerResultSet.java:2392)
+	at MotorTISA$5.doInBackground(MotorTISA.java:233)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 13, 2023 6:03:35 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:05:26 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:10:46 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:16:04 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:17:50 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:22:51 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:23:00 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:26:47 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:29:20 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:29:59 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:31:32 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:34:37 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:43:26 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:43:45 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:44:28 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:49:36 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:51:02 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:52:15 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:53:43 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:53:47 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: Ya hay un objeto con el nombre 'tmp_avl_ids' en la base de datos.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:262)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1621)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:592)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:522)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7194)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:2935)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:248)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:223)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.execute(SQLServerPreparedStatement.java:503)
+	at MotorTISA$5.doInBackground(MotorTISA.java:202)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 13, 2023 6:56:19 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:59:39 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 6:59:43 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: Ya hay un objeto con el nombre 'tmp_avl_ids' en la base de datos.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:262)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1621)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:592)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:522)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7194)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:2935)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:248)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:223)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.execute(SQLServerPreparedStatement.java:503)
+	at MotorTISA$5.doInBackground(MotorTISA.java:202)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 13, 2023 7:00:13 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 7:01:10 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 7:01:12 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna intTipoAVL no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:234)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:686)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getInt(SQLServerResultSet.java:2310)
+	at MotorTISA$5.doInBackground(MotorTISA.java:225)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 13, 2023 7:02:06 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 7:02:11 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna intTipoAVL no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:234)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:686)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getInt(SQLServerResultSet.java:2310)
+	at MotorTISA$5.doInBackground(MotorTISA.java:225)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 13, 2023 7:05:19 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 7:07:08 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 7:08:37 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 7:08:39 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: Ya hay un objeto con el nombre 'tmp_avl_ids' en la base de datos.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:262)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1621)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:592)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:522)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7194)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:2935)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:248)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:223)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.execute(SQLServerPreparedStatement.java:503)
+	at MotorTISA$5.doInBackground(MotorTISA.java:202)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 13, 2023 7:09:09 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 13, 2023 7:14:35 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 9:55:22 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 10:59:57 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 10:59:59 A. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El tipo de cursor no es compatible.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:234)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.<init>(SQLServerStatement.java:527)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.<init>(SQLServerPreparedStatement.java:212)
+	at com.microsoft.sqlserver.jdbc.SQLServerCallableStatement.<init>(SQLServerCallableStatement.java:87)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.prepareCall(SQLServerConnection.java:3447)
+	at MotorTISA$5.doInBackground(MotorTISA.java:205)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 14, 2023 11:00:20 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 11:01:51 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 11:03:57 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 11:09:11 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 11:10:51 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 11:11:40 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 2:43:20 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 3:10:38 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 3:10:57 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna dFehaHoraEnvio no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getTimestamp(SQLServerResultSet.java:2677)
+	at MotorTISA$5.doInBackground(MotorTISA.java:367)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 14, 2023 3:12:08 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 3:12:27 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna dFechaHoraInsert no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getTimestamp(SQLServerResultSet.java:2677)
+	at MotorTISA$5.doInBackground(MotorTISA.java:369)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 14, 2023 3:13:50 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 3:14:19 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El valor no está configurado para el número de parámetro 18.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.buildParamTypeDefinitions(SQLServerPreparedStatement.java:447)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.buildPreparedStrings(SQLServerPreparedStatement.java:399)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatementBatch(SQLServerPreparedStatement.java:2870)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtBatchExecCmd.doExecute(SQLServerPreparedStatement.java:2826)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7675)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:4137)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:272)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:246)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeBatch(SQLServerPreparedStatement.java:2222)
+	at MotorTISA$5.doInBackground(MotorTISA.java:375)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 14, 2023 3:15:22 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 4:03:33 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 4:03:52 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+java.sql.BatchUpdateException: Infracción de la restricción PRIMARY KEY 'PK_tblDescargasPagaBus'. No se puede insertar una clave duplicada en el objeto 'avl.tblDescargasPagaBus'. El valor de la clave duplicada es (104200037).
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeBatch(SQLServerPreparedStatement.java:2231)
+	at MotorTISA$5.doInBackground(MotorTISA.java:378)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 14, 2023 4:06:47 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 4:49:42 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 4:50:00 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+java.sql.BatchUpdateException: Infracción de la restricción PRIMARY KEY 'PK_tblDescargasPagaBus'. No se puede insertar una clave duplicada en el objeto 'avl.tblDescargasPagaBus'. El valor de la clave duplicada es (104200037).
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeBatch(SQLServerPreparedStatement.java:2231)
+	at MotorTISA$5.doInBackground(MotorTISA.java:381)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 14, 2023 4:52:12 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 4:52:33 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El valor no está configurado para el número de parámetro 5.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.buildParamTypeDefinitions(SQLServerPreparedStatement.java:447)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.buildPreparedStrings(SQLServerPreparedStatement.java:399)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatementBatch(SQLServerPreparedStatement.java:2870)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtBatchExecCmd.doExecute(SQLServerPreparedStatement.java:2826)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7675)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:4137)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:272)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:246)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeBatch(SQLServerPreparedStatement.java:2222)
+	at MotorTISA$5.doInBackground(MotorTISA.java:453)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 14, 2023 4:55:05 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 5:01:18 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 5:27:07 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 5:31:42 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 14, 2023 5:33:20 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 10:22:28 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 10:22:34 A. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El método execute() no puede tomar argumentos en PreparedStatement o CallableStatement.
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.execute(SQLServerPreparedStatement.java:3353)
+	at MotorTISA$5.doInBackground(MotorTISA.java:203)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 15, 2023 10:23:38 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 10:23:43 A. M. MotorTISA$5 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El método execute() no puede tomar argumentos en PreparedStatement o CallableStatement.
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.execute(SQLServerPreparedStatement.java:3353)
+	at MotorTISA$5.doInBackground(MotorTISA.java:203)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 15, 2023 10:24:52 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 10:25:41 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 10:27:00 A. M. MotorTISA checkConnection
 FINE: conexion realizada
