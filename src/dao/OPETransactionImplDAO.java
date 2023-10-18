@@ -12,12 +12,12 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import pojos.OpeTransaction;
+import pojos.OPETransaction;
 /**
  *
  * @author n6y
  */
-public class OPETransactionImplDAO extends DAOFactory<OpeTransaction>{
+public class OPETransactionImplDAO extends DAOFactory<OPETransaction>{
     private static final String SQL_INSERT
             = "INSERT INTO sfinx.ope_transaction"
             + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -42,29 +42,29 @@ public class OPETransactionImplDAO extends DAOFactory<OpeTransaction>{
     }
 
     
-    public int create(OpeTransaction t) throws DAOException, IOException {
+    public int create(OPETransaction t) throws DAOException, IOException {
         return super.insert(t);
     }
 
-    public int edit(OpeTransaction t) throws DAOException, IOException {
+    public int edit(OPETransaction t) throws DAOException, IOException {
         return super.update(t);
     }
 
-    public int remove(OpeTransaction t) throws DAOException, IOException {
+    public int remove(OPETransaction t) throws DAOException, IOException {
         return super.delete(t);
     }
 
-    public OpeTransaction find(Object id) throws DAOException, IOException {
+    public OPETransaction find(Object id) throws DAOException, IOException {
         return find(SQL_FIND_BY_ID, id);
     }
 
 
-    public List<OpeTransaction> findAll() throws DAOException, IOException {
+    public List<OPETransaction> findAll() throws DAOException, IOException {
         return list(SQL_ALL);
     }
 
     //Construye un HashMap (Clave, Valor) a partir de un objeto que será insertado como un registro en la Base de Datos
-    HashMap<String, Object> convertObjToParam(OpeTransaction object) {
+    HashMap<String, Object> convertObjToParam(OPETransaction object) {
         LinkedHashMap<String, Object> params = new LinkedHashMap<>();
        //insertar parametros en el orden que aparecen en la consulta SQL
         params.put("id", object.getId());
@@ -103,7 +103,7 @@ public class OPETransactionImplDAO extends DAOFactory<OpeTransaction>{
     }
 
     //Construye un objeto OPETrancaction a partir de un registro existente en la Base de Datos
-    OpeTransaction convertDbToOjb(ResultSet resultSet) throws SQLException {
+    OPETransaction convertDbToOjb(ResultSet resultSet) throws SQLException {
         ResultSetMetaData metaData = resultSet.getMetaData();
         ArrayList<String> columnNames = new ArrayList();
         System.out.println("columnas resultset");
@@ -112,7 +112,7 @@ public class OPETransactionImplDAO extends DAOFactory<OpeTransaction>{
             metaData.getColumnType(i+1);
         }
         
-        OpeTransaction t = new OpeTransaction(resultSet.getLong("id"), 
+        OPETransaction t = new OPETransaction(resultSet.getLong("id"), 
                 resultSet.getLong("intTipoAVL"), 
                 resultSet.getString("strModemID"), 
                 resultSet.getString("fLongitud_grad"), 

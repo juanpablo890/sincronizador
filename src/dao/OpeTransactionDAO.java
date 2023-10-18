@@ -9,22 +9,22 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import pojos.OpeTransaction;
+import pojos.OPETransaction;
 
 /**
  *
  * @author n6y
  */
-public class OpeTransactionDAO {
+public class OPETransactionDAO {
 
     private final String SQL_INSERT = "INSERT INTO sfinx.ope_transaction VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-    public OpeTransactionDAO() {
+    public OPETransactionDAO() {
 
     }
 
     //Inserta un registro en la tabla [sfinx].[ope_transaction] BD: DBINTERMEDIA a partir de un objeto OpeTransaction
-    public void insert(OpeTransaction t, Connection DBConnection, PreparedStatement prepareStatement) throws SQLException {
+    public void insert(OPETransaction t, Connection DBConnection, PreparedStatement prepareStatement) throws SQLException {
 
         prepareStatement.setLong(1, t.getId());
         prepareStatement.setLong(2, t.getCollection_id());

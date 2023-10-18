@@ -9,21 +9,21 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import pojos.OpeRecharge;
+import pojos.OPERecharge;
 
 /**
  *
  * @author n6y
  */
-public class OpeRechargeDAO {
+public class OPERechargeDAO {
 
 private final String SQL_INSERT = "INSERT INTO sfinx.ope_recharge VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-    public OpeRechargeDAO() {
+    public OPERechargeDAO() {
 
     }
 
     //Inserta un registro en la tabla [sfinx].[ope_recharge] BD: DBINTERMEDIA a partir de un objeto OpeRecharge
-    public void insert(OpeRecharge r, Connection DBConnection, PreparedStatement prepareStatement) {
+    public void insert(OPERecharge r, Connection DBConnection, PreparedStatement prepareStatement) {
         try {
             
             prepareStatement.setLong(1, r.getId());
@@ -40,12 +40,12 @@ private final String SQL_INSERT = "INSERT INTO sfinx.ope_recharge VALUES (?,?,?,
             prepareStatement.setString(12, r.getExpiration_date());
             prepareStatement.setString(13, r.getCreated_at());
             prepareStatement.setString(14, r.getUpdated_at());
-            prepareStatement.setBoolean(15, r.getStatus());
+            prepareStatement.setBoolean(15, r.isStatus());
             prepareStatement.setBigDecimal(16, r.getAmount());
             prepareStatement.setString(17, r.getProfile());
             prepareStatement.addBatch();
         } catch (SQLException ex) {
-            Logger.getLogger(OpeRechargeDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OPERechargeDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

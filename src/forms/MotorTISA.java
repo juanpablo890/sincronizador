@@ -13,8 +13,8 @@ import dao.DescargaPOSDAO;
 import dao.DescargaPagaBusDAO;
 import dao.DescargaTDEDAO;
 import dao.FimpeDEBITODAO;
-import dao.OpeRechargeDAO;
-import dao.OpeTransactionDAO;
+import dao.OPERechargeDAO;
+import dao.OPETransactionDAO;
 import java.awt.Color;
 //import controller.Logger;
 import java.awt.Dimension;
@@ -57,8 +57,8 @@ import pojos.DescargaPOS;
 import pojos.DescargaPagaBus;
 import pojos.DescargaTDE;
 import pojos.FimpeDEBITO;
-import pojos.OpeRecharge;
-import pojos.OpeTransaction;
+import pojos.OPERecharge;
+import pojos.OPETransaction;
 import pojos.RangoAVL;
 
 /*
@@ -326,8 +326,8 @@ public class MotorTISA extends javax.swing.JFrame {
         //worker_prueba.execute();
 
         SwingWorker worker_postgres = new SwingWorker() {
-            OpeTransactionDAO opetDAO = new OpeTransactionDAO();
-            OpeRechargeDAO operDAO = new OpeRechargeDAO();
+            OPETransactionDAO opetDAO = new OPETransactionDAO();
+            OPERechargeDAO operDAO = new OPERechargeDAO();
 
             long InitialTime;
             long FinalTime;
@@ -355,7 +355,7 @@ public class MotorTISA extends javax.swing.JFrame {
                     pb_downloadSFINX.setMaximum(10000);
                     pb_downloadSFINX.setStringPainted(true);
                     while (rs.next()) {
-                        OpeTransaction t = new OpeTransaction(rs);
+                        OPETransaction t = new OPETransaction(rs);
 
                         opetDAO.insert(t, connMSSQL, prepareStatement);
 
@@ -467,8 +467,8 @@ public class MotorTISA extends javax.swing.JFrame {
                     ArrayList<PreparedStatement> prepareStatementList = new ArrayList();
                     pb_downloadSFINX.setMaximum(regCount);
                     pb_downloadSFINX.setStringPainted(true);
-                    OpeTransactionDAO opetDAO = new OpeTransactionDAO();
-                    OpeRechargeDAO operDAO = new OpeRechargeDAO();
+                    OPETransactionDAO opetDAO = new OPETransactionDAO();
+                    OPERechargeDAO operDAO = new OPERechargeDAO();
 
                     //proceso de descarga ope_recharge (sfinx)
                     do {
@@ -481,7 +481,7 @@ public class MotorTISA extends javax.swing.JFrame {
                         while (rs.next()) {
 
                             //System.out.println(rs.getLong(1));
-                            OpeRecharge r = new OpeRecharge(rs);
+                            OPERecharge r = new OPERecharge(rs);
 
                             operDAO.insert(r, DBConnection, prepareStatement);
                             pb_downloadSFINX.setValue(i);
@@ -506,7 +506,7 @@ public class MotorTISA extends javax.swing.JFrame {
                         while (rs.next()) {
 
                             //System.out.println(rs.getLong(1));
-                            OpeTransaction t = new OpeTransaction(rs);
+                            OPETransaction t = new OPETransaction(rs);
 
                             opetDAO.insert(t, DBConnection, prepareStatement);
                             pb_downloadSFINX.setValue(i);
@@ -598,7 +598,7 @@ public class MotorTISA extends javax.swing.JFrame {
                     StoredProcedure executeSP = consultasSQL.executeSP(consultasSQL.getSQLSP_AVLGPRS());
                     StoredProcedure executeSP1 = consultasSQL.executeSP(consultasSQL.getSQLSP_AVLGPRS_SELECTS());
 //
-                    int regCount = new ConsultasSQL(DBConnection).getAVLRegCount();
+                    regCount = new ConsultasSQL(DBConnection).getAVLRegCount();
 //                    System.out.println("regcount:" + regCount);
 //                    PreparedStatement prepareStatement;
 //                    ArrayList<PreparedStatement> prepareStatementList = new ArrayList();
