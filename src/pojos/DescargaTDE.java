@@ -4,6 +4,8 @@
  */
 package pojos;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 
 /**
@@ -52,6 +54,28 @@ public class DescargaTDE {
         this.intStatus = intStatus;
         this.strModem_ID = strModem_ID;
         this.dFehaHoraInsert = dFehaHoraInsert;
+    }
+
+    public DescargaTDE(ResultSet rs) throws SQLException {
+        this(rs.getLong("id_DGPRS"),
+                rs.getInt("intTipoFrame"),
+                rs.getInt("intSubidas_Pta1"),
+                rs.getInt("intBajadas_Pta1"),
+                rs.getInt("intBloqueos_Pta1"),
+                rs.getInt("intPablos_Pta1"),
+                rs.getInt("intSubidas_Pta2"),
+                rs.getInt("intBajadas_Pta2"),
+                rs.getInt("intBloqueos_Pta2"),
+                rs.getInt("intPablos_Pta2"),
+                rs.getInt("intNumOperador"),
+                rs.getInt("intBanderaLiquidacion"),
+                0,//rs.getInt("intVarControl"),
+                rs.getInt("intNumApagados_Pta1"),
+                rs.getInt("intNumApagados_Pta2"),
+                0,//rs.getInt("intId_Asignacion"),
+                0,
+                "",
+                rs.getTimestamp("dFechaHoraInsert"));
     }
 
     public Timestamp getdFehaHoraInsert() {

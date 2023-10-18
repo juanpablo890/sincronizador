@@ -17,29 +17,29 @@ import pojos.DescargaOdometro;
  */
 public class DescargaOdometroDAO {
 
-private final String SQL_INSERT = "INSERT INTO avl.tblDescargasOdometro VALUES (?,?,?,?)";
+    private final String SQL_INSERT = "INSERT INTO avl.tblDescargasOdometro VALUES (?,?,?,?)";
+
     public DescargaOdometroDAO() {
 
     }
 
     //Inserta un registro en la tabla [avl].[tblDescargasOdometro] BD: DBINTERMEDIA a partir de un objeto DescargaOdometro
-    public void insert(DescargaOdometro d, Connection DBConnection, PreparedStatement prepareStatement) {
+    public boolean insert(DescargaOdometro d, Connection DBConnection, PreparedStatement prepareStatement) {
         try {
-            
             prepareStatement.setLong(1, d.getId_dgprs());
             prepareStatement.setLong(2, d.getBintOdometro());
             prepareStatement.setString(3, d.getStrModemID());
             prepareStatement.setInt(4, d.getIntVarControl());
-           
             prepareStatement.addBatch();
         } catch (SQLException ex) {
             Logger.getLogger(DescargaOdometroDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
+        return true;
     }
 
     public String getSQL_INSERT() {
         return SQL_INSERT;
     }
-    
-    
+
 }

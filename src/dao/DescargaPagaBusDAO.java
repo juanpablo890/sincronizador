@@ -17,15 +17,16 @@ import pojos.DescargaPagaBus;
  */
 public class DescargaPagaBusDAO {
 
-private final String SQL_INSERT = "INSERT INTO avl.tblDescargasPagaBus VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    private final String SQL_INSERT = "INSERT INTO avl.tblDescargasPagaBus VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
     public DescargaPagaBusDAO() {
 
     }
 
     //Inserta un registro en la tabla [avl].[tblDescargasTDE] BD: DBINTERMEDIA a partir de un objeto DescargaTDE
-    public void insert(DescargaPagaBus d, Connection DBConnection, PreparedStatement prepareStatement) {
+    public boolean insert(DescargaPagaBus d, Connection DBConnection, PreparedStatement prepareStatement) {
+
         try {
-            
             prepareStatement.setLong(1, d.getId_dgprs());
             prepareStatement.setBigDecimal(2, d.getdTotalEfectivoRegistrado());
             prepareStatement.setBigDecimal(3, d.getdTotalVentas());
@@ -44,14 +45,16 @@ private final String SQL_INSERT = "INSERT INTO avl.tblDescargasPagaBus VALUES (?
             prepareStatement.setTimestamp(16, d.getdFechaHoraInsert());
             prepareStatement.setInt(17, d.getContadorCiclico());
             prepareStatement.addBatch();
+
         } catch (SQLException ex) {
             Logger.getLogger(DescargaPagaBusDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
+        return true;
     }
 
     public String getSQL_INSERT() {
         return SQL_INSERT;
     }
-    
-    
+
 }

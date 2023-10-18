@@ -1,0 +1,73 @@
+oct 12, 2023 1:54:06 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 12, 2023 2:04:56 P. M. forms.MotorTISA$8 doInBackground
+SEVERE: null
+java.lang.OutOfMemoryError: Java heap space
+	at controller.DescargasAVLController.insertSIGOTODBSMOTOR(DescargasAVLController.java:82)
+	at forms.MotorTISA$8.doInBackground(MotorTISA.java:761)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+oct 12, 2023 2:12:40 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 12, 2023 2:19:52 P. M. forms.MotorTISA$8 doInBackground
+SEVERE: null
+java.lang.OutOfMemoryError: Java heap space
+	at com.microsoft.sqlserver.jdbc.Parameter.cloneForBatch(Parameter.java:180)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.addBatch(SQLServerPreparedStatement.java:2051)
+	at dao.DescargaAVLDAO.insert(DescargaAVLDAO.java:49)
+	at controller.DescargasAVLController.insertSIGOTODBSMOTOR(DescargasAVLController.java:84)
+	at forms.MotorTISA$8.doInBackground(MotorTISA.java:761)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+oct 12, 2023 2:29:16 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 12, 2023 2:32:52 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 12, 2023 3:01:49 P. M. forms.MotorTISA$8 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna dFechaHoraInsert no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getTimestamp(SQLServerResultSet.java:2677)
+	at pojos.DescargaPOS.<init>(DescargaPOS.java:130)
+	at controller.DescargasAVLController.insertSIGOTODBSMOTOR(DescargasAVLController.java:176)
+	at forms.MotorTISA$8.doInBackground(MotorTISA.java:761)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+oct 12, 2023 3:55:39 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 12, 2023 3:57:15 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 12, 2023 4:30:23 P. M. forms.MotorTISA$8 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna dFechaHoraInsert no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getTimestamp(SQLServerResultSet.java:2677)
+	at pojos.DescargaPOS.<init>(DescargaPOS.java:130)
+	at controller.DescargasAVLController.insertSIGOTODBSMOTOR(DescargasAVLController.java:176)
+	at forms.MotorTISA$8.doInBackground(MotorTISA.java:761)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+oct 12, 2023 4:43:46 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada

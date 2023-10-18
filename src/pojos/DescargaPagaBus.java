@@ -6,6 +6,8 @@ package pojos;
 
 import java.sql.Timestamp;
 import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -49,6 +51,26 @@ public class DescargaPagaBus {
         this.strModem_ID = strModem_ID;
         this.dFechaHoraInsert = dFechaHoraInsert;
         this.contadorCiclico = contadorCiclico;
+    }
+
+    public DescargaPagaBus(ResultSet rs) throws SQLException {
+        this(rs.getLong("id_DGPRS"),
+                rs.getBigDecimal("dTotalEfectivoRegistrado"),
+                rs.getBigDecimal("dTotalVentas"),
+                rs.getBigDecimal("dTotalVentasTarifa0"),
+                rs.getBigDecimal("dTotalVentasTarifa1"),
+                rs.getBigDecimal("dTotalVentasTarifa2"),
+                rs.getBigDecimal("dTotalVentasTarifa3"),
+                rs.getBigDecimal("dTotalVentasTarifa4"),
+                rs.getBigDecimal("dTotalVentasTarifa5"),
+                rs.getBigDecimal("dTotalVentasTarifa6"),
+                rs.getBigDecimal("dTotalVentasTarifa7"),
+                rs.getBigDecimal("dTotalVentasTarifa8"),
+                rs.getBigDecimal("dTotalVentasTarifa9"),
+                rs.getTimestamp("dFechaHoraEnvio"),
+                rs.getString("strModem_ID"),
+                rs.getTimestamp("dFechaHoraInsert"),
+                rs.getInt("intContadorCiclico"));
     }
 
     public int getContadorCiclico() {

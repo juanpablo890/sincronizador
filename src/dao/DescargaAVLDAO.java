@@ -17,13 +17,12 @@ import pojos.DescargaAVL;
  */
 public class DescargaAVLDAO {
     private final String SQL_INSERT = "INSERT INTO avl.tblDescargasAVL VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
     public DescargaAVLDAO() {
 
     }
 
     //Inserta un registro en la tabla [avl].[tblDescargasAVL] BD: DBINTERMEDIA a partir de un objeto DescargaAVL
-    public void insert(DescargaAVL d, Connection DBConnection, PreparedStatement prepareStatement) {
+    public boolean insert(DescargaAVL d, Connection DBConnection, PreparedStatement prepareStatement) {
         try {
             
             prepareStatement.setLong(1, d.getId());
@@ -44,10 +43,18 @@ public class DescargaAVLDAO {
             prepareStatement.setTimestamp(16, d.getdFechaHoraComputadora());
             prepareStatement.setInt(17, d.getVarControl());
             prepareStatement.setInt(18, d.getStatus());
+//            if(d.getId() == 143330473 || d.getId() == 143330475){
+//            throw new SQLException();
+//            }
             prepareStatement.addBatch();
+
+            
         } catch (SQLException ex) {
             Logger.getLogger(DescargaAVLDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
+        return true;
+//        return false;
     }
 
     public String getSQL_INSERT() {

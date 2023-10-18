@@ -975,3 +975,105 @@ sep 15, 2023 10:25:41 A. M. MotorTISA checkConnection
 FINE: conexion realizada
 sep 15, 2023 10:27:00 A. M. MotorTISA checkConnection
 FINE: conexion realizada
+sep 15, 2023 10:48:08 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 10:50:20 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 10:50:30 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 10:54:04 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 10:57:37 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 10:58:09 A. M. MotorTISA$5 doInBackground
+SEVERE: null
+java.sql.BatchUpdateException: Infracción de la restricción PRIMARY KEY 'PK_tblDescargasPagaBus'. No se puede insertar una clave duplicada en el objeto 'avl.tblDescargasPagaBus'. El valor de la clave duplicada es (104200037).
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeBatch(SQLServerPreparedStatement.java:2231)
+	at MotorTISA$5.doInBackground(MotorTISA.java:395)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 15, 2023 10:58:42 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 11:01:13 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 11:19:53 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 12:03:28 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 12:06:39 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 12:08:23 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 12:09:25 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 12:10:44 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 12:12:56 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 12:17:48 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 12:18:19 P. M. MotorTISA$5 doInBackground
+SEVERE: null
+java.sql.BatchUpdateException: Infracción de la restricción PRIMARY KEY 'PK_tblDescargasPagaBus'. No se puede insertar una clave duplicada en el objeto 'avl.tblDescargasPagaBus'. El valor de la clave duplicada es (104200037).
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeBatch(SQLServerPreparedStatement.java:2231)
+	at MotorTISA$5.doInBackground(MotorTISA.java:488)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 15, 2023 12:22:00 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 12:24:08 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 12:26:35 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 12:32:43 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 12:56:12 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 12:56:29 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 12:58:09 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 12:59:00 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 1:01:57 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 1:03:26 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 1:15:10 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 1:35:30 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 1:35:53 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 1:36:12 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 1:38:54 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 1:39:13 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 1:41:37 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 1:42:05 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 1:48:02 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 1:48:22 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 1:48:45 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 1:48:56 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 1:49:17 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 15, 2023 1:49:43 P. M. MotorTISA checkConnection
+FINE: conexion realizada

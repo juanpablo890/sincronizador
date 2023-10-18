@@ -3,12 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package pojos;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Timestamp;
+
 /**
  *
  * @author n6y
  */
 public class DescargaCARD {
+
     private long id;
     private long id_dgprs;
     private String validator;
@@ -65,6 +70,36 @@ public class DescargaCARD {
         this.consecutivoSAM = consecutivoSAM;
         this.modemID = modemID;
         this.dFechaHoraInsert = dFechaHoraInsert;
+    }
+
+    public DescargaCARD(ResultSet rs) throws SQLException {
+        this(rs.getLong("id"),
+                rs.getLong("id_DGPRS"),
+                rs.getString("strValidador"),
+                rs.getString("strIDTarjeta"),
+                rs.getInt("intTipoTarjeta"),
+                rs.getInt("intTipoEventoTarjeta"),
+                rs.getInt("intSaldoInicialTarjeta"),
+                rs.getInt("intSaldoFinalTarjeta"),
+                rs.getTimestamp("dFechaEventoTarjeta"),
+                rs.getInt("intIDPuntoVenta"),
+                rs.getInt("intFolioVenta"),
+                0,//rs.getInt("intVarControl"),
+                0,//rs.getInt("intStatus"),
+                rs.getTimestamp("dFechaAVL"),
+                rs.getInt("intNumOperador"),
+                rs.getInt("intFolioTarjeta"),
+                rs.getString("idFrameEvento"),
+                rs.getInt("intRuta"),
+                rs.getInt("intContadorCiclicoTrans"),
+                rs.getInt("intIDProducto"),
+                rs.getInt("intEntidad"),
+                rs.getString("strIDSAM"),
+                rs.getInt("intIdEvento"),
+                rs.getString("strUID"),
+                rs.getString("strConsecutivoSAM"),
+                rs.getString("strModem_ID"),
+                rs.getTimestamp("dFechaHoraInsert"));
     }
 
     public Timestamp getdFechaHoraInsert() {

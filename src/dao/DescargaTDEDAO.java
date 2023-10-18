@@ -17,15 +17,16 @@ import pojos.DescargaTDE;
  */
 public class DescargaTDEDAO {
 
-private final String SQL_INSERT = "INSERT INTO avl.tblDescargasTDE VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    private final String SQL_INSERT = "INSERT INTO avl.tblDescargasTDE VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
     public DescargaTDEDAO() {
 
     }
 
     //Inserta un registro en la tabla [avl].[tblDescargasTDE] BD: DBINTERMEDIA a partir de un objeto DescargaTDE
-    public void insert(DescargaTDE d, Connection DBConnection, PreparedStatement prepareStatement) {
+    public boolean insert(DescargaTDE d, Connection DBConnection, PreparedStatement prepareStatement)  {
+
         try {
-            
             prepareStatement.setLong(1, d.getId_dgprs());
             prepareStatement.setInt(2, d.getIntTipoFrame());
             prepareStatement.setInt(3, d.getIntSubidas_Pta1());
@@ -48,12 +49,13 @@ private final String SQL_INSERT = "INSERT INTO avl.tblDescargasTDE VALUES (?,?,?
             prepareStatement.addBatch();
         } catch (SQLException ex) {
             Logger.getLogger(DescargaTDEDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
+return true;
     }
 
     public String getSQL_INSERT() {
         return SQL_INSERT;
     }
-    
-    
+
 }

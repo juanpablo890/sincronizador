@@ -1,0 +1,191 @@
+sep 27, 2023 1:45:20 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 1:45:26 P. M. MotorTISA$7 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna 'records_amount' no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1695)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:648)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:567)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7675)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:4137)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:272)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:246)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.execute(SQLServerPreparedStatement.java:544)
+	at MotorTISA$7.doInBackground(MotorTISA.java:482)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 27, 2023 1:46:01 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 1:46:02 P. M. MotorTISA$7 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna 'records_amount' no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1695)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:648)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:567)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7675)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:4137)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:272)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:246)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.execute(SQLServerPreparedStatement.java:544)
+	at MotorTISA$7.doInBackground(MotorTISA.java:482)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 27, 2023 1:47:31 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 2:40:29 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 2:45:26 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 2:56:40 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 3:05:28 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 3:18:24 P. M. MotorTISA$7 doInBackground
+SEVERE: null
+java.lang.OutOfMemoryError: Java heap space
+	at com.microsoft.sqlserver.jdbc.DTV.getValue(dtv.java:247)
+	at com.microsoft.sqlserver.jdbc.Column.getValue(Column.java:190)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getValue(SQLServerResultSet.java:2105)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getValue(SQLServerResultSet.java:2091)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getTimestamp(SQLServerResultSet.java:2677)
+	at pojos.DescargaAVL.<init>(DescargaAVL.java:73)
+	at MotorTISA$7.doInBackground(MotorTISA.java:512)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 27, 2023 6:01:05 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 6:24:15 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 6:24:51 P. M. MotorTISA$7 doInBackground
+SEVERE: null
+java.sql.BatchUpdateException: Infracción de la restricción PRIMARY KEY 'PK_tblDescargasPagaBus'. No se puede insertar una clave duplicada en el objeto 'avl.tblDescargasPagaBus'. El valor de la clave duplicada es (121285451).
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeBatch(SQLServerPreparedStatement.java:2231)
+	at MotorTISA$7.doInBackground(MotorTISA.java:625)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 27, 2023 6:58:09 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 7:00:42 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 7:01:17 P. M. MotorTISA$7 doInBackground
+SEVERE: null
+java.sql.BatchUpdateException: Infracción de la restricción PRIMARY KEY 'PK_tblDescargasPagaBus'. No se puede insertar una clave duplicada en el objeto 'avl.tblDescargasPagaBus'. El valor de la clave duplicada es (121285451).
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeBatch(SQLServerPreparedStatement.java:2231)
+	at MotorTISA$7.doInBackground(MotorTISA.java:625)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 27, 2023 7:16:01 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 7:45:56 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 7:46:33 P. M. MotorTISA$7 doInBackground
+SEVERE: null
+java.sql.BatchUpdateException: Infracción de la restricción PRIMARY KEY 'PK_tblDescargasPagaBus'. No se puede insertar una clave duplicada en el objeto 'avl.tblDescargasPagaBus'. El valor de la clave duplicada es (121285451).
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeBatch(SQLServerPreparedStatement.java:2231)
+	at MotorTISA$7.doInBackground(MotorTISA.java:625)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 27, 2023 7:47:58 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 7:48:33 P. M. MotorTISA$7 doInBackground
+SEVERE: null
+java.sql.BatchUpdateException: Infracción de la restricción PRIMARY KEY 'PK_tblDescargasPagaBus'. No se puede insertar una clave duplicada en el objeto 'avl.tblDescargasPagaBus'. El valor de la clave duplicada es (121285451).
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeBatch(SQLServerPreparedStatement.java:2231)
+	at MotorTISA$7.doInBackground(MotorTISA.java:625)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 27, 2023 7:59:07 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 8:02:56 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 8:03:59 P. M. MotorTISA$7 doInBackground
+SEVERE: null
+java.sql.BatchUpdateException: Infracción de la restricción PRIMARY KEY 'PK_tblDescargasPagaBus'. No se puede insertar una clave duplicada en el objeto 'avl.tblDescargasPagaBus'. El valor de la clave duplicada es (121285451).
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeBatch(SQLServerPreparedStatement.java:2231)
+	at MotorTISA$7.doInBackground(MotorTISA.java:625)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 27, 2023 8:07:43 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 8:11:36 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 8:13:32 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 8:14:12 P. M. MotorTISA$7 doInBackground
+SEVERE: null
+java.sql.BatchUpdateException: Infracción de la restricción PRIMARY KEY 'PK_tblDescargasPagaBus'. No se puede insertar una clave duplicada en el objeto 'avl.tblDescargasPagaBus'. El valor de la clave duplicada es (121285451).
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeBatch(SQLServerPreparedStatement.java:2231)
+	at MotorTISA$7.doInBackground(MotorTISA.java:625)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 27, 2023 8:17:25 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 8:19:21 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 8:21:13 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 8:23:06 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 8:24:00 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 8:30:01 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 27, 2023 8:30:42 P. M. MotorTISA$7 doInBackground
+SEVERE: null
+java.sql.BatchUpdateException: Infracción de la restricción PRIMARY KEY 'PK_tblDescargasPagaBus'. No se puede insertar una clave duplicada en el objeto 'avl.tblDescargasPagaBus'. El valor de la clave duplicada es (121285451).
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeBatch(SQLServerPreparedStatement.java:2231)
+	at MotorTISA$7.doInBackground(MotorTISA.java:625)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+

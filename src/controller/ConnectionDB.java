@@ -63,7 +63,7 @@ private HashMap conexionData;
             case "postgresql":
                 conn = DriverManager.getConnection(
           "jdbc:postgresql://" + server + ":" + port + "/" + database, username, password);
-                
+                break;
 
             default:
                 System.out.println("error de conexión a la base de datos");
@@ -78,9 +78,9 @@ private HashMap conexionData;
         conn.abort(runnable -> new Thread(runnable).start());
     }
     
-    public Object getRecordsAmount(){
+    public Object getRecordsCount(){
         
-    return conexionData.get("records_amount");
+    return conexionData.get("records_count");
     
     }
 

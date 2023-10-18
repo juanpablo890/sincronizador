@@ -15,12 +15,8 @@ import java.util.logging.Level;
  * @author n6y
  */
 public class Logger {
-    public List<String> readLoggerFile(Path path){
-        try {
-            return Files.readAllLines(path);
-        } catch (IOException ex) {
-            java.util.logging.Logger.getLogger(Logger.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
+
+    public List<String> readLoggerFile(Path path) throws IOException {
+        return Files.readAllLines(path);
     }
 }

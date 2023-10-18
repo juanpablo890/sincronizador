@@ -4,11 +4,15 @@
  */
 package pojos;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author n6y
  */
 public class DescargaOdometro {
+
     private long id_dgprs;
     private long bintOdometro;
     private String strModemID;
@@ -19,6 +23,13 @@ public class DescargaOdometro {
         this.bintOdometro = bintOdometro;
         this.strModemID = strModemID;
         this.intVarControl = intVarControl;
+    }
+
+    public DescargaOdometro(ResultSet rs) throws SQLException {
+        this(rs.getLong("id_DGPRS"),
+                rs.getLong("bintOdometro"),
+                rs.getString("strModemID"),
+                rs.getInt("intVarControl"));
     }
 
     public long getId_dgprs() {

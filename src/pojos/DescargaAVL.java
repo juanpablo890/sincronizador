@@ -4,12 +4,16 @@
  */
 package pojos;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Timestamp;
+
 /**
  *
  * @author n6y
  */
 public class DescargaAVL {
+
     private long id;
     private int tipoAVL;
     private String modemID;
@@ -50,7 +54,26 @@ public class DescargaAVL {
         this.status = status;
     }
 
-    
+    public DescargaAVL(ResultSet rs) throws SQLException {
+        this(rs.getLong("id"),
+                rs.getInt("intTipoAVL"),
+                rs.getString("strModemID"),
+                rs.getDouble("fLongitud_grad"),
+                rs.getDouble("fLatitud_grad"),
+                rs.getInt("intVelocidad"),
+                rs.getInt("intAltitud"),
+                rs.getInt("intNum_Sat"),
+                rs.getInt("intHeading"),
+                rs.getTimestamp("dFecha_Hora_SAT"),
+                rs.getInt("intTipo_Evento"),
+                rs.getInt("intVariable1"),
+                rs.getInt("intVariable2"),
+                rs.getInt("intVariable3"),
+                rs.getInt("intVariable4"),
+                rs.getTimestamp("dFechaHoraComputadora"),
+                0,
+                0);
+    }
 
     public int getStatus() {
         return status;

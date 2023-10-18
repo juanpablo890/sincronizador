@@ -1,0 +1,37 @@
+oct 18, 2023 1:41:49 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 18, 2023 1:42:19 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 18, 2023 1:49:57 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 18, 2023 2:29:43 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 18, 2023 2:47:11 P. M. forms.MotorTISA$8 doInBackground
+SEVERE: null
+java.sql.BatchUpdateException: Infracción de la restricción PRIMARY KEY 'PK_tblDescargasPagaBus'. No se puede insertar una clave duplicada en el objeto 'avl.tblDescargasPagaBus'. El valor de la clave duplicada es (159422345).
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeBatch(SQLServerPreparedStatement.java:2231)
+	at controller.DescargasAVLController.insertSIGOTODBSMOTOR(DescargasAVLController.java:231)
+	at forms.MotorTISA$8.doInBackground(MotorTISA.java:795)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+oct 18, 2023 2:51:33 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 18, 2023 3:19:04 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 18, 2023 3:20:16 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 18, 2023 3:31:45 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 18, 2023 3:45:21 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 18, 2023 3:45:29 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 18, 2023 3:54:46 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 18, 2023 3:58:43 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada

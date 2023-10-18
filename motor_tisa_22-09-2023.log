@@ -1,0 +1,150 @@
+sep 22, 2023 10:23:58 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 22, 2023 4:16:04 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 22, 2023 4:18:45 P. M. MotorTISA$4 doInBackground
+SEVERE: null
+org.postgresql.util.PSQLException: ERROR: syntax error at or near "exec"
+  Position: 1
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190)
+	at org.postgresql.jdbc.PgCallableStatement.executeWithFlags(PgCallableStatement.java:84)
+	at org.postgresql.jdbc.PgPreparedStatement.execute(PgPreparedStatement.java:177)
+	at controller.ConsultasSQL.executeSP(ConsultasSQL.java:73)
+	at MotorTISA$4.doInBackground(MotorTISA.java:225)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 22, 2023 4:38:02 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 22, 2023 4:38:33 P. M. MotorTISA$4 doInBackground
+SEVERE: null
+org.postgresql.util.PSQLException: ERROR: function f_carga_sfinx_to_intermedia_selects(integer) does not exist
+  Hint: No function matches the given name and argument types. You might need to add explicit type casts.
+  Position: 15
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:335)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:321)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:297)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:292)
+	at MotorTISA$4.doInBackground(MotorTISA.java:227)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 22, 2023 7:04:45 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 22, 2023 7:04:49 P. M. MotorTISA$4 doInBackground
+SEVERE: null
+org.postgresql.util.PSQLException: FATAL: no existe la base de datos �sfx_bckp�
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2825)
+	at org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:175)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:313)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263)
+	at org.postgresql.Driver.makeConnection(Driver.java:443)
+	at org.postgresql.Driver.connect(Driver.java:297)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at controller.ConnectionDB.DBConnection(ConnectionDB.java:64)
+	at MotorTISA$4.doInBackground(MotorTISA.java:220)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 22, 2023 7:05:32 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 22, 2023 7:05:50 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 22, 2023 7:07:49 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 22, 2023 7:08:15 P. M. MotorTISA$4 doInBackground
+SEVERE: null
+org.postgresql.util.PSQLException: ERROR: no existe la relación «ope_transaction»
+  Position: 15
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:335)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:321)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:297)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:292)
+	at MotorTISA$4.doInBackground(MotorTISA.java:229)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 22, 2023 7:09:30 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 22, 2023 7:10:09 P. M. MotorTISA$6 doInBackground
+SEVERE: null
+java.sql.BatchUpdateException: Infracción de la restricción PRIMARY KEY 'PK_tblDescargasPagaBus'. No se puede insertar una clave duplicada en el objeto 'avl.tblDescargasPagaBus'. El valor de la clave duplicada es (114813765).
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeBatch(SQLServerPreparedStatement.java:2231)
+	at MotorTISA$6.doInBackground(MotorTISA.java:612)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 22, 2023 7:11:43 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 22, 2023 7:12:12 P. M. MotorTISA$4 doInBackground
+SEVERE: null
+org.postgresql.util.PSQLException: The column name collection_id was not found in this ResultSet.
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3033)
+	at org.postgresql.jdbc.PgResultSet.getLong(PgResultSet.java:2914)
+	at pojos.OpeTransaction.<init>(OpeTransaction.java:86)
+	at MotorTISA$4.doInBackground(MotorTISA.java:237)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 22, 2023 7:16:54 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 22, 2023 7:17:24 P. M. MotorTISA$4 doInBackground
+SEVERE: null
+org.postgresql.util.PSQLException: The column name collection_id was not found in this ResultSet.
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:3033)
+	at org.postgresql.jdbc.PgResultSet.getLong(PgResultSet.java:2914)
+	at pojos.OpeTransaction.<init>(OpeTransaction.java:86)
+	at MotorTISA$4.doInBackground(MotorTISA.java:237)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 22, 2023 7:18:53 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 22, 2023 7:20:54 P. M. MotorTISA checkConnection
+FINE: conexion realizada

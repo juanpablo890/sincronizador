@@ -17,15 +17,16 @@ import pojos.DescargaPOS;
  */
 public class DescargaPOSDAO {
 
-private final String SQL_INSERT = "INSERT INTO avl.tblDescargasPOS VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    private final String SQL_INSERT = "INSERT INTO avl.tblDescargasPOS VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
     public DescargaPOSDAO() {
 
     }
 
     //Inserta un registro en la tabla [avl].[tblDescargasTDE] BD: DBINTERMEDIA a partir de un objeto DescargaTDE
-    public void insert(DescargaPOS d, Connection DBConnection, PreparedStatement prepareStatement) {
+    public boolean insert(DescargaPOS d, Connection DBConnection, PreparedStatement prepareStatement) {
+
         try {
-            
             prepareStatement.setLong(1, d.getId());
             prepareStatement.setLong(2, d.getId_DGPRS());
             prepareStatement.setString(3, d.getStrValidador());
@@ -42,12 +43,12 @@ private final String SQL_INSERT = "INSERT INTO avl.tblDescargasPOS VALUES (?,?,?
             prepareStatement.setTimestamp(14, d.getdFechaAVL());
             prepareStatement.setInt(15, d.getIntNumOperador());
             prepareStatement.setInt(16, d.getIntFolioTarjeta());
-             prepareStatement.setString(17, d.getIdFrameEvento());
+            prepareStatement.setString(17, d.getIdFrameEvento());
             prepareStatement.setInt(18, d.getIntRuta());
             prepareStatement.setInt(19, d.getIntContadorCiclicoTrans());
             prepareStatement.setInt(20, d.getIntIDProducto());
             prepareStatement.setInt(21, d.getIntEntidad());
-             prepareStatement.setString(22, d.getStrIDSAM());
+            prepareStatement.setString(22, d.getStrIDSAM());
             prepareStatement.setInt(23, d.getIntIdEvento());
             prepareStatement.setInt(24, d.getIntSaldoUltimaRecarga());
             prepareStatement.setTimestamp(25, d.getDtRecarga());
@@ -62,16 +63,17 @@ private final String SQL_INSERT = "INSERT INTO avl.tblDescargasPOS VALUES (?,?,?
             prepareStatement.setInt(34, d.getIntContadorCiclico());
             prepareStatement.setString(35, d.getStrModem_ID());
             prepareStatement.setTimestamp(36, d.getdFechaHoraInsert());
-            
+
             prepareStatement.addBatch();
         } catch (SQLException ex) {
             Logger.getLogger(DescargaPOSDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
+        return true;
     }
 
     public String getSQL_INSERT() {
         return SQL_INSERT;
     }
-    
-    
+
 }

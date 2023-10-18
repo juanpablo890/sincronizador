@@ -6,6 +6,8 @@ package pojos;
 
 import java.sql.Timestamp;
 import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -87,6 +89,45 @@ public class DescargaPOS {
         this.intContadorCiclico = intContadorCiclico;
         this.strModem_ID = strModem_ID;
         this.dFechaHoraInsert = dFechaHoraInsert;
+    }
+
+    public DescargaPOS(ResultSet rs) throws SQLException {
+        this(rs.getLong("id"),
+                rs.getLong("id_DGPRS"),
+                rs.getString("strValidador"),
+                rs.getString("strIDTarjeta"),
+                rs.getInt("intTipoTarjeta"),
+                rs.getInt("intTipoEventoTarjeta"),
+                rs.getInt("intSaldoInicialTarjeta"),
+                rs.getInt("intSaldoFinalTarjeta"),
+                rs.getTimestamp("dFechaEventoTarjeta"),
+                rs.getInt("intIDPuntoVenta"),
+                rs.getInt("intFolioVenta"),
+                0, //rs.getInt("intVarControl"),
+                0, //rs.getInt("intStatus"),
+                rs.getTimestamp("dFechaAVL"),
+                rs.getInt("intNumOperador"),
+                rs.getInt("intFolioTarjeta"),
+                rs.getString("idFrameEvento"),
+                rs.getInt("intRuta"),
+                rs.getInt("intContadorCiclicoTrans"),
+                rs.getInt("intIDProducto"),
+                rs.getInt("intEntidad"),
+                rs.getString("strIDSAM"),
+                rs.getInt("intIdEvento"),
+                rs.getInt("IntSaldoUltimaRecarga"),
+                rs.getTimestamp("DtRecarga"),
+                rs.getBoolean("BErrorRecarga"),
+                rs.getBoolean("BEsVenta"),
+                rs.getString("GuidUsuario"),
+                rs.getBoolean("BOffline"),
+                rs.getString("GuidFolio"),
+                rs.getBigDecimal("MSaldoPOSAnterior"),
+                rs.getString("strUID"),
+                rs.getString("strCSAM"),
+                rs.getInt("intContadorCiclico"),
+                rs.getString("strModem_ID"),
+                rs.getTimestamp("dFechaHoraInsert"));
     }
 
     public Timestamp getdFechaHoraInsert() {

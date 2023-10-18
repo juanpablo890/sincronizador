@@ -1,0 +1,68 @@
+sep 21, 2023 11:32:56 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 11:33:20 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 11:46:29 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 11:48:31 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 11:51:20 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 11:51:51 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 11:52:04 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 11:52:43 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 11:52:57 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 11:57:06 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 11:58:21 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 11:59:08 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 11:59:40 A. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 12:04:08 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 12:20:56 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 12:27:52 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 12:29:05 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 12:29:39 P. M. MotorTISA$6 doInBackground
+SEVERE: null
+java.sql.BatchUpdateException: Infracción de la restricción PRIMARY KEY 'PK_tblDescargasPagaBus'. No se puede insertar una clave duplicada en el objeto 'avl.tblDescargasPagaBus'. El valor de la clave duplicada es (114813765).
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeBatch(SQLServerPreparedStatement.java:2231)
+	at MotorTISA$6.doInBackground(MotorTISA.java:760)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 21, 2023 12:30:07 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 12:34:52 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 12:35:27 P. M. MotorTISA$6 doInBackground
+SEVERE: null
+java.sql.BatchUpdateException: Infracción de la restricción PRIMARY KEY 'PK_tblDescargasPagaBus'. No se puede insertar una clave duplicada en el objeto 'avl.tblDescargasPagaBus'. El valor de la clave duplicada es (114813765).
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeBatch(SQLServerPreparedStatement.java:2231)
+	at MotorTISA$6.doInBackground(MotorTISA.java:781)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+sep 21, 2023 12:36:37 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 12:38:01 P. M. MotorTISA checkConnection
+FINE: conexion realizada
+sep 21, 2023 12:38:28 P. M. MotorTISA checkConnection
+FINE: conexion realizada
