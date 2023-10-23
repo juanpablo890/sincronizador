@@ -17,7 +17,7 @@ import pojos.DescargaTDE;
  */
 public class DescargaTDEDAO {
 
-    private final String SQL_INSERT = "INSERT INTO avl.tblDescargasTDE VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    private final String SQL_INSERT = "INSERT INTO avl.tblDescargasTDE VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
     public DescargaTDEDAO() {
 
@@ -45,7 +45,8 @@ public class DescargaTDEDAO {
             prepareStatement.setInt(16, d.getIntId_Asignacion());
             prepareStatement.setInt(17, d.getIntStatus());
             prepareStatement.setString(18, d.getStrModem_ID());
-            prepareStatement.setTimestamp(19, d.getdFehaHoraInsert());
+            prepareStatement.setString(19, d.getNoSerieAVLOriginal());
+            prepareStatement.setTimestamp(20, d.getdFehaHoraInsert());
             prepareStatement.addBatch();
         } catch (SQLException ex) {
             Logger.getLogger(DescargaTDEDAO.class.getName()).log(Level.SEVERE, null, ex);

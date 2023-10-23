@@ -17,6 +17,7 @@ public class DescargaAVL {
     private long id;
     private int tipoAVL;
     private String modemID;
+    private String noSerieAVLOriginal;
     private double fLongitud_grad;
     private double fLalitud_grad;
     private int velocidad;
@@ -33,10 +34,11 @@ public class DescargaAVL {
     private int varControl;
     private int status;
 
-    public DescargaAVL(long id, int tipoAVL, String modemID, double fLongitud_grad, double fLalitud_grad, int velocidad, int altitud, int num_Sat, int heading, Timestamp dFecha_hora_Sat, int tipo_evento, int variable1, int variable2, int variable3, int variable4, Timestamp dFechaHoraComputadora, int varControl, int status) {
+    public DescargaAVL(long id, int tipoAVL, String modemID, String noSerieAVLOriginal, double fLongitud_grad, double fLalitud_grad, int velocidad, int altitud, int num_Sat, int heading, Timestamp dFecha_hora_Sat, int tipo_evento, int variable1, int variable2, int variable3, int variable4, Timestamp dFechaHoraComputadora, int varControl, int status) {
         this.id = id;
         this.tipoAVL = tipoAVL;
         this.modemID = modemID;
+        this.noSerieAVLOriginal = noSerieAVLOriginal;
         this.fLongitud_grad = fLongitud_grad;
         this.fLalitud_grad = fLalitud_grad;
         this.velocidad = velocidad;
@@ -54,10 +56,12 @@ public class DescargaAVL {
         this.status = status;
     }
 
+
     public DescargaAVL(ResultSet rs) throws SQLException {
         this(rs.getLong("id"),
                 rs.getInt("intTipoAVL"),
                 rs.getString("strModemID"),
+                rs.getString("NoSerieAVLOriginal"),
                 rs.getDouble("fLongitud_grad"),
                 rs.getDouble("fLatitud_grad"),
                 rs.getInt("intVelocidad"),
@@ -218,4 +222,14 @@ public class DescargaAVL {
     public void setVarControl(int varControl) {
         this.varControl = varControl;
     }
+
+    public String getNoSerieAVLOriginal() {
+        return noSerieAVLOriginal;
+    }
+
+    public void setNoSerieAVLOriginal(String noSerieAVLOriginal) {
+        this.noSerieAVLOriginal = noSerieAVLOriginal;
+    }
+    
+    
 }

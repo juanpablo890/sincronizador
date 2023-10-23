@@ -1,0 +1,27 @@
+oct 20, 2023 4:02:41 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 20, 2023 4:02:43 P. M. forms.MotorTISA$8 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de objeto 'AVL_GPRS.dbo.tblUnidadesGPRSRemplazo' no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1695)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:648)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:567)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7675)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:4137)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:272)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:246)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.execute(SQLServerPreparedStatement.java:544)
+	at controller.ConsultasSQL.executeSP(ConsultasSQL.java:93)
+	at forms.MotorTISA$8.doInBackground(MotorTISA.java:599)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+oct 20, 2023 4:09:28 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 20, 2023 4:22:28 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada

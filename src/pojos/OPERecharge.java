@@ -6,6 +6,7 @@ package pojos;
 
 import java.sql.Timestamp;
 import java.math.BigDecimal;
+import java.sql.ResultSet;
 
 /**
  *
@@ -49,6 +50,10 @@ public class OPERecharge {
         this.status = status;
         this.amount = amount;
         this.profile = profile;
+    }
+
+    public OPERecharge(ResultSet rs) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public String getProfile() {

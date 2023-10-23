@@ -17,7 +17,7 @@ import pojos.DescargaPagaBus;
  */
 public class DescargaPagaBusDAO {
 
-    private final String SQL_INSERT = "INSERT INTO avl.tblDescargasPagaBus VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    private final String SQL_INSERT = "INSERT INTO avl.tblDescargasPagaBus VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
     public DescargaPagaBusDAO() {
 
@@ -42,8 +42,9 @@ public class DescargaPagaBusDAO {
             prepareStatement.setBigDecimal(13, d.getdTotalVentasTarifa9());
             prepareStatement.setTimestamp(14, d.getdFechaHoraEnvio());
             prepareStatement.setString(15, d.getStrModem_ID());
-            prepareStatement.setTimestamp(16, d.getdFechaHoraInsert());
-            prepareStatement.setInt(17, d.getContadorCiclico());
+            prepareStatement.setString(16, d.getNoSerieAVLOriginal());
+            prepareStatement.setTimestamp(17, d.getdFechaHoraInsert());
+            prepareStatement.setInt(18, d.getContadorCiclico());
             prepareStatement.addBatch();
 
         } catch (SQLException ex) {

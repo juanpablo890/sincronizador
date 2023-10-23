@@ -5,6 +5,7 @@
 package pojos;
 
 import java.math.BigDecimal;
+import java.sql.ResultSet;
 
 /**
  *
@@ -76,6 +77,10 @@ public class OPETransaction {
         this.updated_at = updated_at;
         this.status = status;
         this.previous_card = previous_card;
+    }
+
+    public OPETransaction(ResultSet rs) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public String getPrevious_card() {

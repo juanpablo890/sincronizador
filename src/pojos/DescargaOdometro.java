@@ -16,19 +16,24 @@ public class DescargaOdometro {
     private long id_dgprs;
     private long bintOdometro;
     private String strModemID;
+    private String noSerieAVLOriginal;
     private int intVarControl;
 
-    public DescargaOdometro(long id_dgprs, long bintOdometro, String strModemID, int intVarControl) {
+    public DescargaOdometro(long id_dgprs, long bintOdometro, String strModemID, String noSerieAVLOriginal, int intVarControl) {
         this.id_dgprs = id_dgprs;
         this.bintOdometro = bintOdometro;
         this.strModemID = strModemID;
+        this.noSerieAVLOriginal = noSerieAVLOriginal;
         this.intVarControl = intVarControl;
     }
+
+    
 
     public DescargaOdometro(ResultSet rs) throws SQLException {
         this(rs.getLong("id_DGPRS"),
                 rs.getLong("bintOdometro"),
                 rs.getString("strModemID"),
+                rs.getString("NoSerieAVLOriginal"),
                 rs.getInt("intVarControl"));
     }
 
@@ -63,4 +68,14 @@ public class DescargaOdometro {
     public void setIntVarControl(int intVarControl) {
         this.intVarControl = intVarControl;
     }
+
+    public String getNoSerieAVLOriginal() {
+        return noSerieAVLOriginal;
+    }
+
+    public void setNoSerieAVLOriginal(String noSerieAVLOriginal) {
+        this.noSerieAVLOriginal = noSerieAVLOriginal;
+    }
+    
+    
 }

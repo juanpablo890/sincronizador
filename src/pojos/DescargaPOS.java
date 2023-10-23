@@ -50,9 +50,10 @@ public class DescargaPOS {
     private String strCSAM;
     private int intContadorCiclico;
     private String strModem_ID;
+    private String noSerieAVLOriginal;
     private Timestamp dFechaHoraInsert;
 
-    public DescargaPOS(long id, long id_DGPRS, String strValidador, String strIDTarjeta, int intTipoTarjeta, int intTipoEventoTarjeta, int intSaldoInicialTarjeta, int intSaldoFinalTarjeta, Timestamp dFechaEventoTarjeta, int intIDPuntoVenta, int intFolioVenta, int intVarControl, int intStatus, Timestamp dFechaAVL, int intNumOperador, int intFolioTarjeta, String idFrameEvento, int intRuta, int intContadorCiclicoTrans, int intIDProducto, int intEntidad, String strIDSAM, int intIdEvento, int IntSaldoUltimaRecarga, Timestamp DtRecarga, boolean BErrorRecarga, boolean BEsVenta, String GuidUsuario, boolean BOffline, String GuidFolio, BigDecimal MSaldoPOSAnterior, String strUID, String strCSAM, int intContadorCiclico, String strModem_ID, Timestamp dFechaHoraInsert) {
+    public DescargaPOS(long id, long id_DGPRS, String strValidador, String strIDTarjeta, int intTipoTarjeta, int intTipoEventoTarjeta, int intSaldoInicialTarjeta, int intSaldoFinalTarjeta, Timestamp dFechaEventoTarjeta, int intIDPuntoVenta, int intFolioVenta, int intVarControl, int intStatus, Timestamp dFechaAVL, int intNumOperador, int intFolioTarjeta, String idFrameEvento, int intRuta, int intContadorCiclicoTrans, int intIDProducto, int intEntidad, String strIDSAM, int intIdEvento, int IntSaldoUltimaRecarga, Timestamp DtRecarga, boolean BErrorRecarga, boolean BEsVenta, String GuidUsuario, boolean BOffline, String GuidFolio, BigDecimal MSaldoPOSAnterior, String strUID, String strCSAM, int intContadorCiclico, String strModem_ID, String noSerieAVLOriginal, Timestamp dFechaHoraInsert) {
         this.id = id;
         this.id_DGPRS = id_DGPRS;
         this.strValidador = strValidador;
@@ -88,8 +89,10 @@ public class DescargaPOS {
         this.strCSAM = strCSAM;
         this.intContadorCiclico = intContadorCiclico;
         this.strModem_ID = strModem_ID;
+        this.noSerieAVLOriginal = noSerieAVLOriginal;
         this.dFechaHoraInsert = dFechaHoraInsert;
     }
+
 
     public DescargaPOS(ResultSet rs) throws SQLException {
         this(rs.getLong("id"),
@@ -127,6 +130,7 @@ public class DescargaPOS {
                 rs.getString("strCSAM"),
                 rs.getInt("intContadorCiclico"),
                 rs.getString("strModem_ID"),
+                rs.getString("NoSerieAVLOriginal"),
                 rs.getTimestamp("dFechaHoraInsert"));
     }
 
@@ -417,4 +421,13 @@ public class DescargaPOS {
     public void setStrModem_ID(String strModem_ID) {
         this.strModem_ID = strModem_ID;
     }
+
+    public String getNoSerieAVLOriginal() {
+        return noSerieAVLOriginal;
+    }
+
+    public void setNoSerieAVLOriginal(String noSerieAVLOriginal) {
+        this.noSerieAVLOriginal = noSerieAVLOriginal;
+    }
+    
 }

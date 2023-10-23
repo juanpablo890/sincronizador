@@ -32,9 +32,10 @@ public class DescargaTDE {
     private int intId_Asignacion;
     private int intStatus;
     private String strModem_ID;
+    private String noSerieAVLOriginal;
     private Timestamp dFehaHoraInsert;
 
-    public DescargaTDE(long id_dgprs, int intTipoFrame, int intSubidas_Pta1, int intBajadas_Pta1, int intBloqueos_Pta1, int intPablos_Pta1, int intSubidas_Pta2, int intBajadas_Pta2, int intBloqueos_Pta2, int intPablos_Pta2, int intNumOperador, int intBanderaLiquidacion, int intVarControl, int intNumApagados_Pta1, int intNumApagados_Pta2, int intId_Asignacion, int intStatus, String strModem_ID, Timestamp dFehaHoraInsert) {
+    public DescargaTDE(long id_dgprs, int intTipoFrame, int intSubidas_Pta1, int intBajadas_Pta1, int intBloqueos_Pta1, int intPablos_Pta1, int intSubidas_Pta2, int intBajadas_Pta2, int intBloqueos_Pta2, int intPablos_Pta2, int intNumOperador, int intBanderaLiquidacion, int intVarControl, int intNumApagados_Pta1, int intNumApagados_Pta2, int intId_Asignacion, int intStatus, String strModem_ID, String noSerieAVLOriginal, Timestamp dFehaHoraInsert) {
         this.id_dgprs = id_dgprs;
         this.intTipoFrame = intTipoFrame;
         this.intSubidas_Pta1 = intSubidas_Pta1;
@@ -53,8 +54,11 @@ public class DescargaTDE {
         this.intId_Asignacion = intId_Asignacion;
         this.intStatus = intStatus;
         this.strModem_ID = strModem_ID;
+        this.noSerieAVLOriginal = noSerieAVLOriginal;
         this.dFehaHoraInsert = dFehaHoraInsert;
     }
+
+    
 
     public DescargaTDE(ResultSet rs) throws SQLException {
         this(rs.getLong("id_DGPRS"),
@@ -74,7 +78,8 @@ public class DescargaTDE {
                 rs.getInt("intNumApagados_Pta2"),
                 0,//rs.getInt("intId_Asignacion"),
                 0,
-                "",
+                rs.getString("strModem_ID"),
+                rs.getString("NoSerieAVLOriginal"),
                 rs.getTimestamp("dFechaHoraInsert"));
     }
 
@@ -229,5 +234,15 @@ public class DescargaTDE {
     public void setStrModem_ID(String strModem_ID) {
         this.strModem_ID = strModem_ID;
     }
+
+    public String getNoSerieAVLOriginal() {
+        return noSerieAVLOriginal;
+    }
+
+    public void setNoSerieAVLOriginal(String noSerieAVLOriginal) {
+        this.noSerieAVLOriginal = noSerieAVLOriginal;
+    }
+    
+    
 
 }

@@ -17,7 +17,7 @@ import pojos.DescargaPOS;
  */
 public class DescargaPOSDAO {
 
-    private final String SQL_INSERT = "INSERT INTO avl.tblDescargasPOS VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    private final String SQL_INSERT = "INSERT INTO avl.tblDescargasPOS VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
     public DescargaPOSDAO() {
 
@@ -62,7 +62,8 @@ public class DescargaPOSDAO {
             prepareStatement.setString(33, d.getStrCSAM());
             prepareStatement.setInt(34, d.getIntContadorCiclico());
             prepareStatement.setString(35, d.getStrModem_ID());
-            prepareStatement.setTimestamp(36, d.getdFechaHoraInsert());
+            prepareStatement.setString(36, d.getNoSerieAVLOriginal());
+            prepareStatement.setTimestamp(37, d.getdFechaHoraInsert());
 
             prepareStatement.addBatch();
         } catch (SQLException ex) {

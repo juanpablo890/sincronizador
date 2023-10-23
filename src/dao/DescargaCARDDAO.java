@@ -17,7 +17,7 @@ import pojos.DescargaCARD;
  */
 public class DescargaCARDDAO {
 
-    private final String SQL_INSERT = "INSERT INTO avl.tblDescargasCARD VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    private final String SQL_INSERT = "INSERT INTO avl.tblDescargasCARD VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
     public DescargaCARDDAO() {
 
@@ -53,7 +53,8 @@ public class DescargaCARDDAO {
             prepareStatement.setString(24, d.getUid());
             prepareStatement.setString(25, d.getConsecutivoSAM());
             prepareStatement.setString(26, d.getModemID());
-            prepareStatement.setTimestamp(27, d.getdFechaHoraInsert());
+            prepareStatement.setString(27, d.getNoSerieAVLOriginal());
+            prepareStatement.setTimestamp(28, d.getdFechaHoraInsert());
             prepareStatement.addBatch();
         } catch (SQLException ex) {
             Logger.getLogger(DescargaCARDDAO.class.getName()).log(Level.SEVERE, null, ex);

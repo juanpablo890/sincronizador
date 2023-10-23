@@ -30,10 +30,11 @@ public class DescargaPagaBus {
     private BigDecimal dTotalVentasTarifa9;
     private Timestamp dFechaHoraEnvio;
     private String strModem_ID;
+    private String noSerieAVLOriginal;
     private Timestamp dFechaHoraInsert;
     private int contadorCiclico;
 
-    public DescargaPagaBus(long id_dgprs, BigDecimal dTotalEfectivoRegistrado, BigDecimal dTotalVentas, BigDecimal dTotalVentasTarifa0, BigDecimal dTotalVentasTarifa1, BigDecimal dTotalVentasTarifa2, BigDecimal dTotalVentasTarifa3, BigDecimal dTotalVentasTarifa4, BigDecimal dTotalVentasTarifa5, BigDecimal dTotalVentasTarifa6, BigDecimal dTotalVentasTarifa7, BigDecimal dTotalVentasTarifa8, BigDecimal dTotalVentasTarifa9, Timestamp dFehaHoraEnvio, String strModem_ID, Timestamp dFechaHoraInsert, int contadorCiclico) {
+    public DescargaPagaBus(long id_dgprs, BigDecimal dTotalEfectivoRegistrado, BigDecimal dTotalVentas, BigDecimal dTotalVentasTarifa0, BigDecimal dTotalVentasTarifa1, BigDecimal dTotalVentasTarifa2, BigDecimal dTotalVentasTarifa3, BigDecimal dTotalVentasTarifa4, BigDecimal dTotalVentasTarifa5, BigDecimal dTotalVentasTarifa6, BigDecimal dTotalVentasTarifa7, BigDecimal dTotalVentasTarifa8, BigDecimal dTotalVentasTarifa9, Timestamp dFechaHoraEnvio, String strModem_ID, String noSerieAVLOriginal, Timestamp dFechaHoraInsert, int contadorCiclico) {
         this.id_dgprs = id_dgprs;
         this.dTotalEfectivoRegistrado = dTotalEfectivoRegistrado;
         this.dTotalVentas = dTotalVentas;
@@ -47,11 +48,14 @@ public class DescargaPagaBus {
         this.dTotalVentasTarifa7 = dTotalVentasTarifa7;
         this.dTotalVentasTarifa8 = dTotalVentasTarifa8;
         this.dTotalVentasTarifa9 = dTotalVentasTarifa9;
-        this.dFechaHoraEnvio = dFehaHoraEnvio;
+        this.dFechaHoraEnvio = dFechaHoraEnvio;
         this.strModem_ID = strModem_ID;
+        this.noSerieAVLOriginal = noSerieAVLOriginal;
         this.dFechaHoraInsert = dFechaHoraInsert;
         this.contadorCiclico = contadorCiclico;
     }
+
+    
 
     public DescargaPagaBus(ResultSet rs) throws SQLException {
         this(rs.getLong("id_DGPRS"),
@@ -69,6 +73,7 @@ public class DescargaPagaBus {
                 rs.getBigDecimal("dTotalVentasTarifa9"),
                 rs.getTimestamp("dFechaHoraEnvio"),
                 rs.getString("strModem_ID"),
+                rs.getString("NoSerieAVLOriginal"),
                 rs.getTimestamp("dFechaHoraInsert"),
                 rs.getInt("intContadorCiclico"));
     }
@@ -208,4 +213,14 @@ public class DescargaPagaBus {
     public void setdFechaHoraInsert(Timestamp dFechaHoraInsert) {
         this.dFechaHoraInsert = dFechaHoraInsert;
     }
+
+    public String getNoSerieAVLOriginal() {
+        return noSerieAVLOriginal;
+    }
+
+    public void setNoSerieAVLOriginal(String noSerieAVLOriginal) {
+        this.noSerieAVLOriginal = noSerieAVLOriginal;
+    }
+    
+    
 }

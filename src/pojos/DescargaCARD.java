@@ -40,9 +40,10 @@ public class DescargaCARD {
     private String uid;
     private String consecutivoSAM;
     private String modemID;
+    private String noSerieAVLOriginal;
     private Timestamp dFechaHoraInsert;
 
-    public DescargaCARD(long id, long id_dgprs, String validator, String idTarjeta, int tipoTarjeta, int tipoEvento, int saldoInicial, int saldoFinal, Timestamp fechaEventoTarjeta, int idPuntoVenta, int folioVenta, int varControl, int status, Timestamp dFechaAVL, int numOperador, int folioTarjeta, String idFrameEvento, int ruta, int contadorCiclico, int idProducto, int entidad, String dsam, int idEvento, String uid, String consecutivoSAM, String modemID, Timestamp dFechaHoraInsert) {
+    public DescargaCARD(long id, long id_dgprs, String validator, String idTarjeta, int tipoTarjeta, int tipoEvento, int saldoInicial, int saldoFinal, Timestamp fechaEventoTarjeta, int idPuntoVenta, int folioVenta, int varControl, int status, Timestamp dFechaAVL, int numOperador, int folioTarjeta, String idFrameEvento, int ruta, int contadorCiclico, int idProducto, int entidad, String dsam, int idEvento, String uid, String consecutivoSAM, String modemID, String noSerieAVLOriginal, Timestamp dFechaHoraInsert) {
         this.id = id;
         this.id_dgprs = id_dgprs;
         this.validator = validator;
@@ -69,8 +70,11 @@ public class DescargaCARD {
         this.uid = uid;
         this.consecutivoSAM = consecutivoSAM;
         this.modemID = modemID;
+        this.noSerieAVLOriginal = noSerieAVLOriginal;
         this.dFechaHoraInsert = dFechaHoraInsert;
     }
+
+    
 
     public DescargaCARD(ResultSet rs) throws SQLException {
         this(rs.getLong("id"),
@@ -99,6 +103,7 @@ public class DescargaCARD {
                 rs.getString("strUID"),
                 rs.getString("strConsecutivoSAM"),
                 rs.getString("strModem_ID"),
+                rs.getString("NoSerieAVLOriginal"),
                 rs.getTimestamp("dFechaHoraInsert"));
     }
 
@@ -317,4 +322,14 @@ public class DescargaCARD {
     public void setModemID(String modemID) {
         this.modemID = modemID;
     }
+
+    public String getNoSerieAVLOriginal() {
+        return noSerieAVLOriginal;
+    }
+
+    public void setNoSerieAVLOriginal(String noSerieAVLOriginal) {
+        this.noSerieAVLOriginal = noSerieAVLOriginal;
+    }
+    
+    
 }

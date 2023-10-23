@@ -29,7 +29,8 @@ public class DescargaOdometroDAO {
             prepareStatement.setLong(1, d.getId_dgprs());
             prepareStatement.setLong(2, d.getBintOdometro());
             prepareStatement.setString(3, d.getStrModemID());
-            prepareStatement.setInt(4, d.getIntVarControl());
+            prepareStatement.setString(4, d.getNoSerieAVLOriginal());
+            prepareStatement.setInt(5, d.getIntVarControl());
             prepareStatement.addBatch();
         } catch (SQLException ex) {
             Logger.getLogger(DescargaOdometroDAO.class.getName()).log(Level.SEVERE, null, ex);
