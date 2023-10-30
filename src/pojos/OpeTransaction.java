@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 
 /**
  *
- * @author n6y
+ * @author Juan Pablo
  */
 public class OPETransaction {
 

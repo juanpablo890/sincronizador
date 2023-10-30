@@ -1,0 +1,383 @@
+oct 23, 2023 9:00:05 A. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 9:03:41 A. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 9:05:03 A. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 9:05:37 A. M. forms.MotorTISA$8 doInBackground
+SEVERE: null
+java.sql.BatchUpdateException: El nombre de columna o los valores especificados no corresponden a la definición de la tabla.
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeBatch(SQLServerPreparedStatement.java:2231)
+	at controller.DescargasAVLController.insertSIGOTODBSMOTOR(DescargasAVLController.java:231)
+	at forms.MotorTISA$8.doInBackground(MotorTISA.java:763)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+oct 23, 2023 9:13:29 A. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 9:13:46 A. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 9:21:47 A. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 9:21:50 A. M. forms.MotorTISA$8 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: Todas las consultas combinadas que usan un operador UNION, INTERSECT o EXCEPT deben tener el mismo número de expresiones en sus listas de destino.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1695)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:648)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:567)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7675)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:4137)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:272)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:246)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.execute(SQLServerPreparedStatement.java:544)
+	at controller.ConsultasSQL.executeSP(ConsultasSQL.java:93)
+	at forms.MotorTISA$8.doInBackground(MotorTISA.java:776)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+oct 23, 2023 9:24:54 A. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 9:24:57 A. M. forms.MotorTISA$8 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: Todas las consultas combinadas que usan un operador UNION, INTERSECT o EXCEPT deben tener el mismo número de expresiones en sus listas de destino.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1695)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:648)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:567)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7675)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:4137)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:272)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:246)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.execute(SQLServerPreparedStatement.java:544)
+	at controller.ConsultasSQL.executeSP(ConsultasSQL.java:93)
+	at forms.MotorTISA$8.doInBackground(MotorTISA.java:776)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+oct 23, 2023 9:51:10 A. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 9:51:11 A. M. forms.MotorTISA$8 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: Todas las consultas combinadas que usan un operador UNION, INTERSECT o EXCEPT deben tener el mismo número de expresiones en sus listas de destino.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1695)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:648)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:567)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7675)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:4137)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:272)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:246)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.execute(SQLServerPreparedStatement.java:544)
+	at controller.ConsultasSQL.executeSP(ConsultasSQL.java:93)
+	at forms.MotorTISA$8.doInBackground(MotorTISA.java:776)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+oct 23, 2023 9:51:42 A. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 9:52:40 A. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 9:54:59 A. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 9:59:29 A. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 10:07:59 A. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 10:28:46 A. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 10:46:34 A. M. forms.MotorTISA$8 doInBackground
+SEVERE: null
+java.sql.BatchUpdateException: El nombre de columna o los valores especificados no corresponden a la definición de la tabla.
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeBatch(SQLServerPreparedStatement.java:2231)
+	at controller.DescargasAVLController.insertSIGOTODBSMOTOR(DescargasAVLController.java:99)
+	at forms.MotorTISA$8.doInBackground(MotorTISA.java:763)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+oct 23, 2023 10:48:59 A. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 10:51:30 A. M. forms.MotorTISA$8 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El valor no está configurado para el número de parámetro 19.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.buildParamTypeDefinitions(SQLServerPreparedStatement.java:447)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.buildPreparedStrings(SQLServerPreparedStatement.java:399)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatementBatch(SQLServerPreparedStatement.java:2870)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtBatchExecCmd.doExecute(SQLServerPreparedStatement.java:2826)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7675)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:4137)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:272)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:246)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeBatch(SQLServerPreparedStatement.java:2222)
+	at controller.DescargasAVLController.insertSIGOTODBSMOTOR(DescargasAVLController.java:99)
+	at forms.MotorTISA$8.doInBackground(MotorTISA.java:763)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+oct 23, 2023 10:53:22 A. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 2:22:19 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 2:37:26 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 3:18:10 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 3:26:09 P. M. forms.MotorTISA$8 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna NoSerieAVLOriginal no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getString(SQLServerResultSet.java:2582)
+	at pojos.DescargaPagaBus.<init>(DescargaPagaBus.java:76)
+	at controller.DescargasAVLController.insertSIGOTODBSMOTOR(DescargasAVLController.java:161)
+	at forms.MotorTISA$8.doInBackground(MotorTISA.java:763)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+oct 23, 2023 3:32:38 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 3:43:19 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 4:54:09 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 4:54:16 P. M. forms.MotorTISA$8 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: Una cláusula TOP o FETCH contiene un valor no válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1695)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:648)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:567)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7675)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:4137)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:272)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:246)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.execute(SQLServerPreparedStatement.java:544)
+	at controller.ConsultasSQL.executeSP(ConsultasSQL.java:93)
+	at forms.MotorTISA$8.doInBackground(MotorTISA.java:598)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+oct 23, 2023 4:54:17 P. M. controller.DebitoFilesController run
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna intNumArch no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getString(SQLServerResultSet.java:2582)
+	at pojos.FimpeDEBITO.<init>(FimpeDEBITO.java:84)
+	at controller.DebitoFilesController.run(DebitoFilesController.java:49)
+	at java.base/java.util.TimerThread.mainLoop(Timer.java:556)
+	at java.base/java.util.TimerThread.run(Timer.java:506)
+
+oct 23, 2023 4:58:22 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 4:58:23 P. M. forms.MotorTISA$8 doInBackground
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: Una cláusula TOP o FETCH contiene un valor no válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1695)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:648)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:567)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7675)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:4137)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:272)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:246)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.execute(SQLServerPreparedStatement.java:544)
+	at controller.ConsultasSQL.executeSP(ConsultasSQL.java:93)
+	at forms.MotorTISA$8.doInBackground(MotorTISA.java:598)
+	at java.desktop/javax.swing.SwingWorker$1.call(SwingWorker.java:304)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.desktop/javax.swing.SwingWorker.run(SwingWorker.java:343)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+oct 23, 2023 4:58:24 P. M. controller.DebitoFilesController run
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna intNumArch no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getString(SQLServerResultSet.java:2582)
+	at pojos.FimpeDEBITO.<init>(FimpeDEBITO.java:84)
+	at controller.DebitoFilesController.run(DebitoFilesController.java:49)
+	at java.base/java.util.TimerThread.mainLoop(Timer.java:556)
+	at java.base/java.util.TimerThread.run(Timer.java:506)
+
+oct 23, 2023 4:59:10 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 4:59:13 P. M. controller.DebitoFilesController run
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna intNumArch no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getString(SQLServerResultSet.java:2582)
+	at pojos.FimpeDEBITO.<init>(FimpeDEBITO.java:84)
+	at controller.DebitoFilesController.run(DebitoFilesController.java:49)
+	at java.base/java.util.TimerThread.mainLoop(Timer.java:556)
+	at java.base/java.util.TimerThread.run(Timer.java:506)
+
+oct 23, 2023 4:59:40 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 4:59:44 P. M. controller.DebitoFilesController run
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna intNumArch no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getString(SQLServerResultSet.java:2582)
+	at pojos.FimpeDEBITO.<init>(FimpeDEBITO.java:84)
+	at controller.DebitoFilesController.run(DebitoFilesController.java:49)
+	at java.base/java.util.TimerThread.mainLoop(Timer.java:556)
+	at java.base/java.util.TimerThread.run(Timer.java:506)
+
+oct 23, 2023 5:07:12 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 5:07:15 P. M. controller.DebitoFilesController run
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna intNumArch no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getString(SQLServerResultSet.java:2582)
+	at pojos.FimpeDEBITO.<init>(FimpeDEBITO.java:84)
+	at controller.DebitoFilesController.run(DebitoFilesController.java:49)
+	at java.base/java.util.TimerThread.mainLoop(Timer.java:556)
+	at java.base/java.util.TimerThread.run(Timer.java:506)
+
+oct 23, 2023 5:12:16 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 5:12:18 P. M. controller.DebitoFilesController run
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna id no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getLong(SQLServerResultSet.java:2410)
+	at pojos.FimpeDEBITO.<init>(FimpeDEBITO.java:85)
+	at controller.DebitoFilesController.run(DebitoFilesController.java:49)
+	at java.base/java.util.TimerThread.mainLoop(Timer.java:556)
+	at java.base/java.util.TimerThread.run(Timer.java:506)
+
+oct 23, 2023 5:14:30 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 5:14:42 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 5:16:40 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 5:16:43 P. M. controller.DebitoFilesController run
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna intNumArch no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getString(SQLServerResultSet.java:2582)
+	at pojos.FimpeDEBITO.<init>(FimpeDEBITO.java:84)
+	at controller.DebitoFilesController.run(DebitoFilesController.java:49)
+	at java.base/java.util.TimerThread.mainLoop(Timer.java:556)
+	at java.base/java.util.TimerThread.run(Timer.java:506)
+
+oct 23, 2023 5:17:18 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 5:18:59 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 5:19:02 P. M. controller.DebitoFilesController run
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna intNumArch no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getString(SQLServerResultSet.java:2582)
+	at pojos.FimpeDEBITO.<init>(FimpeDEBITO.java:84)
+	at controller.DebitoFilesController.run(DebitoFilesController.java:49)
+	at java.base/java.util.TimerThread.mainLoop(Timer.java:556)
+	at java.base/java.util.TimerThread.run(Timer.java:506)
+
+oct 23, 2023 5:19:26 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 5:20:45 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 5:20:47 P. M. controller.DebitoFilesController run
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna intNumArch no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getString(SQLServerResultSet.java:2582)
+	at pojos.FimpeDEBITO.<init>(FimpeDEBITO.java:84)
+	at controller.DebitoFilesController.run(DebitoFilesController.java:50)
+	at java.base/java.util.TimerThread.mainLoop(Timer.java:556)
+	at java.base/java.util.TimerThread.run(Timer.java:506)
+
+oct 23, 2023 5:21:08 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 5:21:11 P. M. controller.DebitoFilesController run
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna intNumArch no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getString(SQLServerResultSet.java:2582)
+	at pojos.FimpeDEBITO.<init>(FimpeDEBITO.java:84)
+	at controller.DebitoFilesController.run(DebitoFilesController.java:50)
+	at java.base/java.util.TimerThread.mainLoop(Timer.java:556)
+	at java.base/java.util.TimerThread.run(Timer.java:506)
+
+oct 23, 2023 5:21:46 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 5:21:48 P. M. controller.DebitoFilesController run
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna C8 no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getString(SQLServerResultSet.java:2582)
+	at pojos.FimpeDEBITO.<init>(FimpeDEBITO.java:100)
+	at controller.DebitoFilesController.run(DebitoFilesController.java:50)
+	at java.base/java.util.TimerThread.mainLoop(Timer.java:556)
+	at java.base/java.util.TimerThread.run(Timer.java:506)
+
+oct 23, 2023 5:22:39 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 5:22:41 P. M. controller.DebitoFilesController run
+SEVERE: null
+com.microsoft.sqlserver.jdbc.SQLServerException: El nombre de columna C17 no es válido.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.findColumn(SQLServerResultSet.java:748)
+	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.getString(SQLServerResultSet.java:2582)
+	at pojos.FimpeDEBITO.<init>(FimpeDEBITO.java:109)
+	at controller.DebitoFilesController.run(DebitoFilesController.java:50)
+	at java.base/java.util.TimerThread.mainLoop(Timer.java:556)
+	at java.base/java.util.TimerThread.run(Timer.java:506)
+
+oct 23, 2023 5:23:01 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 6:02:32 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 6:08:49 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada
+oct 23, 2023 6:13:29 P. M. forms.MotorTISA checkConnection
+FINE: conexion realizada

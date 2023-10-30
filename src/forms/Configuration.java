@@ -43,30 +43,31 @@ public class Configuration extends javax.swing.JFrame {
             conn = new ConnectionDB().DBConnection("sqlserver","192.168.1.206", "1433", "DBINTERMEDIA", "user_motor", "Mot0r.Tis4"); //conectarse a la BD DBINTERMEDIA para obtener el catálogo de conexiones almacenadas
         
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM motor.config_motor_tisa");
+            ResultSet rs = statement.executeQuery("SELECT database_alias FROM motor.config_motor_tisa");
             while (rs.next()) {
                 aliasList.addItem(rs.getString("database_alias"));
             }
-
+            
         } catch (SQLException ex) {
             Logger.getLogger(Configuration.class.getName()).log(Level.SEVERE, null, ex);
         }
-        try {
-            properties = new ConfigurationFile().readConfigurationFile();
-            aliasList.setSelectedItem(String.valueOf(properties.get("database_alias")));
-            dbname.setText(String.valueOf(properties.get("database")));
-            username.setText(String.valueOf(properties.get("username")));
-            password.setText(String.valueOf(properties.get("password")));
-            servername.setText(String.valueOf(properties.get("server")));
-            port.setText(String.valueOf(properties.get("port")));
-            frecuency.setText(String.valueOf(properties.get("synchronization_frec")));
-            records_amount.setText(String.valueOf(properties.get("records_amount")));
-            sgbd.setText(String.valueOf(properties.get("sgbd")));
-
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(rootPane, "el archivo de configuración no existe!", "archivo de configuración no encontrado", JOptionPane.ERROR_MESSAGE);
-            Logger.getLogger(Configuration.class.getName()).log(Level.SEVERE, "archivo de configuración no existe", ex);
-        }
+//        try {
+//            properties = new ConfigurationFile().readConfigurationFile();
+//            aliasList.setSelectedItem(String.valueOf(properties.get("database_alias")));
+//            dbname.setText(String.valueOf(properties.get("database")));
+//            username.setText(String.valueOf(properties.get("username")));
+//            password.setText(String.valueOf(properties.get("password")));
+//            servername.setText(String.valueOf(properties.get("server")));
+//            port.setText(String.valueOf(properties.get("port")));
+//            frecuency.setText(String.valueOf(properties.get("synchronization_frec")));
+//            records_amount.setText(String.valueOf(properties.get("records_amount")));
+//            sgbd.setText(String.valueOf(properties.get("sgbd")));
+//
+//        } catch (IOException ex) {
+//            JOptionPane.showMessageDialog(rootPane, "el archivo de configuración no existe!", "archivo de configuración no encontrado", JOptionPane.ERROR_MESSAGE);
+//            Logger.getLogger(Configuration.class.getName()).log(Level.SEVERE, "archivo de configuración no existe", ex);
+//        }
+        getDatabaseConexionData(); //obtener registro existente de la tabla motor.config_motor_tisa en la base de datos DBINTERMEDIA
 //        try {
 ////            properties = new ConfigurationFile().readConfigurationFile();
 ////            dbname.setText(String.valueOf(properties.get("database")));
@@ -370,6 +371,11 @@ public class Configuration extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelActionPerformed
 
     private void aliasListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_aliasListItemStateChanged
+        getDatabaseConexionData();
+        System.out.println(aliasList.getSelectedItem());
+    }//GEN-LAST:event_aliasListItemStateChanged
+
+    private void getDatabaseConexionData(){
         try {
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM motor.config_motor_tisa WHERE database_alias = ?");
             ps.setString(1, (String) aliasList.getSelectedItem());
@@ -386,9 +392,8 @@ public class Configuration extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Configuration.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(aliasList.getSelectedItem());
-    }//GEN-LAST:event_aliasListItemStateChanged
-
+    }
+    
     /**
      * @param args the command line arguments
      */

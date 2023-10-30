@@ -17,7 +17,7 @@ import pojos.DescargaOdometro;
  */
 public class DescargaOdometroDAO {
 
-    private final String SQL_INSERT = "INSERT INTO avl.tblDescargasOdometro VALUES (?,?,?,?)";
+    private final String SQL_INSERT = "INSERT INTO avl.tblDescargasOdometro VALUES (?,?,?,?,?)";
 
     public DescargaOdometroDAO() {
 

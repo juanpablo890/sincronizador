@@ -16,31 +16,31 @@ import java.util.HashMap;
  * @author n6y
  */
 public class ConnectionDB {
-private HashMap conexionData;
+
+    private HashMap conexionData;
+
     public Connection DBConnection() throws SQLException, IOException {
         conexionData = new ConfigurationFile().readConfigurationFile(); //leer archivo properties
         Connection conn = null;
-        System.out.println("Sistema: "+String.valueOf(conexionData.get("sgbd")));
-        switch(String.valueOf(conexionData.get("sgbd"))){
+        System.out.println("Sistema: " + String.valueOf(conexionData.get("sgbd")));
+        switch (String.valueOf(conexionData.get("sgbd"))) {
             case "sqlserver":
-                 conn = DriverManager.getConnection( //obtener datos de la bd (tabla de configuración)
-                "jdbc:sqlserver://" + conexionData.get("server") + ":" + conexionData.get("port") + ";database=" + conexionData.get("database") + ";user=" + conexionData.get("username") + ";password=" + conexionData.get("password") + ";" + "encrypt=true;"
-                + "trustServerCertificate=true;"
-                + "loginTimeout=30;");
-        System.out.println("conexion" + conn.toString());
+                conn = DriverManager.getConnection( //obtener datos de la bd (tabla de configuración)
+                        "jdbc:sqlserver://" + conexionData.get("server") + ":" + conexionData.get("port") + ";database=" + conexionData.get("database") + ";user=" + conexionData.get("username") + ";password=" + conexionData.get("password") + ";" + "encrypt=true;"
+                        + "trustServerCertificate=true;"
+                        + "loginTimeout=30;");
+                System.out.println("conexion" + conn.toString());
                 break;
-                
+
             case "postgresql":
                 conn = DriverManager.getConnection(
-          "jdbc:postgresql://" + String.valueOf(conexionData.get("server")) + ":" + String.valueOf(conexionData.get("port")) + "/" 
-                  + String.valueOf(conexionData.get("database")), String.valueOf(conexionData.get("username")), String.valueOf(conexionData.get("password")));
+                        "jdbc:postgresql://" + String.valueOf(conexionData.get("server")) + ":" + String.valueOf(conexionData.get("port")) + "/"
+                        + String.valueOf(conexionData.get("database")), String.valueOf(conexionData.get("username")), String.valueOf(conexionData.get("password")));
                 break;
-                
+
             default:
                 break;
         }
-
-       
 
         return conn;
     }
@@ -62,7 +62,7 @@ private HashMap conexionData;
 
             case "postgresql":
                 conn = DriverManager.getConnection(
-          "jdbc:postgresql://" + server + ":" + port + "/" + database, username, password);
+                        "jdbc:postgresql://" + server + ":" + port + "/" + database, username, password);
                 break;
 
             default:
@@ -77,11 +77,9 @@ private HashMap conexionData;
     public void abortConnection(Connection conn) throws SQLException {
         conn.abort(runnable -> new Thread(runnable).start());
     }
-    
-    public Object getRecordsCount(){
-        
-    return conexionData.get("records_count");
-    
+
+    public Object getRecordsCount() {
+        return conexionData.get("records_count");
     }
 
     public HashMap getConexionData() {

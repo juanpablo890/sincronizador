@@ -6,39 +6,27 @@ import controller.DebitoFilesController;
 import controller.DescargasAVLController;
 import controller.DescargasAVLFaltantesController;
 import controller.StoredProcedure;
-import dao.DescargaAVLDAO;
-import dao.DescargaCARDDAO;
-import dao.DescargaOdometroDAO;
-import dao.DescargaPOSDAO;
-import dao.DescargaPagaBusDAO;
-import dao.DescargaTDEDAO;
-import dao.FimpeDEBITODAO;
 import dao.OPERechargeDAO;
 import dao.OPETransactionDAO;
 import java.awt.Color;
 //import controller.Logger;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import java.time.Clock;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.TimeZone;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -48,18 +36,9 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 //import javax.swing.Timer;
 import java.util.Timer;
-import java.util.TimerTask;
 import javax.swing.UIManager;
-import pojos.DescargaAVL;
-import pojos.DescargaCARD;
-import pojos.DescargaOdometro;
-import pojos.DescargaPOS;
-import pojos.DescargaPagaBus;
-import pojos.DescargaTDE;
-import pojos.FimpeDEBITO;
 import pojos.OPERecharge;
 import pojos.OPETransaction;
-import pojos.RangoAVL;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -125,7 +104,9 @@ public class MotorTISA extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         pb_debitosFIMPE = new javax.swing.JProgressBar();
         jLabel3 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -159,8 +140,21 @@ public class MotorTISA extends javax.swing.JFrame {
             }
         });
 
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance())));
-        jFormattedTextField1.setText("23:56:06");
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/lightoffred.png"))); // NOI18N
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jMenu3.setText("Configuración");
 
@@ -212,9 +206,12 @@ public class MotorTISA extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(downloadBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(15, 15, 15))))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -227,7 +224,7 @@ public class MotorTISA extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(pb_debitosFIMPE, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -239,7 +236,10 @@ public class MotorTISA extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(downloadBtn)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(jButton1)
+                        .addComponent(jButton2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pb_downloadSFINX, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -259,71 +259,6 @@ public class MotorTISA extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void downloadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downloadBtnActionPerformed
-
-        SwingWorker worker_prueba = new SwingWorker() {
-            ResultSet rs;
-            int rsCont = 1;
-            int i = 1;
-            long InitialTime;
-            long FinalTime;
-            ConsultasSQL consultasSQL;
-
-            @Override
-            protected Object doInBackground() throws InterruptedException {
-                InitialTime = System.currentTimeMillis();
-                try {
-                    Connection DBConnection = new ConnectionDB().DBConnection();
-                    consultasSQL = new ConsultasSQL(DBConnection);
-                    System.out.println("clic");
-                    downloadBtn.setEnabled(false);
-                    pb_downloadAVL.setMaximum(100);
-                    pb_downloadAVL.setValue(0);
-                    pb_downloadAVL.setIndeterminate(true);
-                    jLabel1.setText("ejecutando query...");
-                    downloadBtn.setEnabled(false);
-                    System.out.println("ejecutando query...");
-                    StoredProcedure executeSP1 = consultasSQL.executeSP("exec [motor].[sp_prueba_tabla_temporal]");
-
-                    pb_downloadAVL.setStringPainted(true);
-
-                    do {
-                        pb_downloadAVL.setIndeterminate(false);
-                        rs = executeSP1.getPrepareCall().getResultSet();
-
-                        while (rs.next()) {
-                            System.out.println(rs.getLong(1));
-                            prueba();
-
-                        }
-
-                    } while (executeSP1.getPrepareCall().getMoreResults());
-
-                } catch (SQLException | IOException ex) {
-                    System.out.println("error en proceso");
-                    Logger.getLogger(MotorTISA.class.getName()).log(Level.SEVERE, null, ex);
-
-                } catch (OutOfMemoryError ex) {
-                    Logger.getLogger(MotorTISA.class.getName()).log(Level.SEVERE, null, ex);
-                    JOptionPane.showMessageDialog(rootPane, ex, "Espacio de memoria insuficiente", JOptionPane.ABORT);
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void done() {
-
-                FinalTime = System.currentTimeMillis();
-                long processTimeMins = getProcessTimeMins(InitialTime, FinalTime);
-                long processTimeSegs = getProcessTimeSegs(InitialTime, FinalTime);
-
-                System.out.println("process time " + processTimeMins + " mins");
-                jLabel1.setText("proceso completado" + " (" + processTimeSegs + " segs)");
-                System.out.println("fin proceso...");
-                //downloadBtn.setEnabled(true);
-            }
-        };
-        //worker_prueba.execute();
 
         SwingWorker worker_postgres = new SwingWorker() {
             OPETransactionDAO opetDAO = new OPETransactionDAO();
@@ -568,237 +503,29 @@ public class MotorTISA extends javax.swing.JFrame {
             protected Object doInBackground() throws InterruptedException {
                 InitialTime = System.currentTimeMillis();
                 try {
-                    Connection DBConnection = new ConnectionDB().DBConnection(); //Conexión a base de datos por defecto (archivo properties)
+                    ConnectionDB connectionDB = new ConnectionDB(); //Conexión a base de datos por defecto (archivo properties)
+                    Connection DBConnection = connectionDB.DBConnection();
+                    HashMap conexionData = connectionDB.getConexionData();
+                    Object synchronization_frec = conexionData.get("synchronization_frec");
                     Connection connDBFIMPETISA = new ConnectionDB().DBConnection("sqlserver", "192.168.1.206", "1433", "DBFIMPETISA", "user_motor", "Mot0r.Tis4");
                     consultasSQL = new ConsultasSQL(DBConnection);
                     ConsultasSQL consultasSQLDBFIMPETISA = new ConsultasSQL(connDBFIMPETISA);
 
 //                    System.out.println("clic");
-                    downloadBtn.setEnabled(false);
-                    pb_downloadAVL.setMaximum(100);
-                    pb_downloadAVL.setValue(0);
-                    pb_downloadAVL.setIndeterminate(true);
-                    jLabel1.setText("iniciando descarga AVL...");
-                    //regCount = new ConsultasSQL(DBConnection).getAVLRegCount();
-                    downloadBtn.setEnabled(false);
-                    System.out.println("ejecutando query...");
-////                    String sqlsp = "exec [motor].[sp_carga_avl_to_intermedia] 'avlgprs'";
-////                    String sqlsp_selects = "exec [motor].[sp_carga_avl_to_intermedia_selects] 'avlgprs' ";
-//
-//                    //CallableStatement prepareCall = DBConnection.prepareCall("exec [motor].sp_prueba");
-//                    //CallableStatement prepareCall = DBConnection.prepareCall("select 'ope_recharge' as table_name" +" select * from [sfinx].[ope_transaction]"+ " select 'ope_transaction' as table_name"+ " select * FROM [motor].[config_motor_tisa]");
-////                    String sql = "SELECT top 5000	id, intTipoAVL, strModemID, fLongitud_grad, fLatitud_grad, intVelocidad, intAltitud, intNum_Sat, intHeading, dFecha_Hora_SAT, intTipo_Evento,\n"
-////                            + "				intVariable1, intVariable2, intVariable3, intVariable4, intVarControl, dFechaHoraComputadora\n"
-////                            + "		FROM [AVL_GPRS].[AVL_GPRS].dbo.tblDescargasAVL \n"
-////                            + "		order by id desc";
-////                    CallableStatement prepareCall_insert = DBConnection.prepareCall(sqlsp);
-////                    CallableStatement prepareCall = DBConnection.prepareCall(sqlsp_selects);
-////                    prepareCall_insert.execute();
-////                    prepareCall.execute();
-                    StoredProcedure executeSP = consultasSQL.executeSP(consultasSQL.getSQLSP_AVLGPRS());
-                    StoredProcedure executeSP1 = consultasSQL.executeSP(consultasSQL.getSQLSP_AVLGPRS_SELECTS());
-//
-                    regCount = new ConsultasSQL(DBConnection).getAVLRegCount();
-//                    System.out.println("regcount:" + regCount);
-//                    PreparedStatement prepareStatement;
-//                    ArrayList<PreparedStatement> prepareStatementList = new ArrayList();
-//                    pb_downloadAVL.setMaximum(regCount);
-//                    pb_downloadAVL.setStringPainted(true);
-//                    DescargaAVLDAO avlDAO = new DescargaAVLDAO();
-//                    DescargaTDEDAO tdeDAO = new DescargaTDEDAO();
-//                    DescargaCARDDAO cardDAO = new DescargaCARDDAO();
-//                    DescargaPagaBusDAO pagabusDAO = new DescargaPagaBusDAO();
-//                    DescargaPOSDAO posDAO = new DescargaPOSDAO();
-//                    DescargaOdometroDAO odometroDAO = new DescargaOdometroDAO();
-//
-//                    do {
-//                        pb_downloadAVL.setIndeterminate(false);
-////                        rs = prepareCall.getResultSet();
-//                        rs = executeSP1.getPrepareCall().getResultSet();
-//
-//                        System.out.println("rs: " + rsCont);
-//                        switch (rsCont) {
-//                            case 1: //AVL
-//                                prepareStatement = DBConnection.prepareStatement(avlDAO.getSQL_INSERT());
-//                                DescargaAVL davl = null;
-//                                while (rs.next()) {
-//
-//                                    //System.out.println(rs.getLong(1));
-//                                    davl = new DescargaAVL(rs);
-//
-//                                    if (avlDAO.insert(davl, DBConnection, prepareStatement)) {
-//                                        pb_downloadAVL.setValue(i);
-//                                        jLabel1.setText("descargando registro: " + i + "/" + regCount);
-//                                        System.out.println("descargando registro: " + i + "/" + regCount);
-//                                        i++;
-//                                    } else {
-//                                        proceso_completado = false;
-//                                    }
-//
-//                                }
-////                                long id = davl.getId();
-////                                System.out.println("id ultimo:" + id);
-//                                //prepareStatement.executeBatch();
-//                                prepareStatementList.add(prepareStatement);
-//                                break;
-//
-//                            case 2: //TDE
-//                                prepareStatement = DBConnection.prepareStatement(tdeDAO.getSQL_INSERT());
-//                                while (rs.next()) {
-//
-//                                    //System.out.println(rs.getLong(1));
-//                                    DescargaTDE dtde = new DescargaTDE(rs);
-//
-//                                    if (tdeDAO.insert(dtde, DBConnection, prepareStatement)) {
-//                                        pb_downloadAVL.setValue(i);
-//                                        jLabel1.setText("descargando registro: " + i + "/" + regCount);
-//                                        System.out.println("descargando registro: " + i + "/" + regCount);
-//                                        i++;
-//                                    } else {
-//                                        proceso_completado = false;
-//                                    }
-//
-//                                }
-//                                //prepareStatement.executeBatch();
-//                                prepareStatementList.add(prepareStatement);
-//                                break;
-//
-//                            case 3: //CARD
-//                                prepareStatement = DBConnection.prepareStatement(cardDAO.getSQL_INSERT());
-//                                while (rs.next()) {
-//
-//                                    //System.out.println(rs.getLong(1));
-//                                    DescargaCARD dcard = new DescargaCARD(rs);
-//
-//                                    if (cardDAO.insert(dcard, DBConnection, prepareStatement)) {
-//                                        pb_downloadAVL.setValue(i);
-//                                        jLabel1.setText("descargando registro: " + i + "/" + regCount);
-//                                        System.out.println("descargando registro: " + i + "/" + regCount);
-//                                        i++;
-//                                    } else {
-//                                        proceso_completado = false;
-//                                    }
-//                                }
-//                                //prepareStatement.executeBatch();
-//                                prepareStatementList.add(prepareStatement);
-//                                break;
-//
-//                            case 4: //PagaBus
-//                                prepareStatement = DBConnection.prepareStatement(pagabusDAO.getSQL_INSERT());
-//                                while (rs.next()) {
-//
-//                                    //System.out.println(rs.getLong(1));
-//                                    DescargaPagaBus dpagabus = new DescargaPagaBus(rs);
-//
-//                                    if (pagabusDAO.insert(dpagabus, DBConnection, prepareStatement)) {
-//                                        pb_downloadAVL.setValue(i);
-//                                        jLabel1.setText("descargando registro: " + i + "/" + regCount);
-//                                        System.out.println("descargando registro: " + i + "/" + regCount);
-//                                        i++;
-//                                    } else {
-//                                        proceso_completado = false;
-//                                    }
-//                                }
-//                                //prepareStatement.executeBatch();
-//                                prepareStatementList.add(prepareStatement);
-//                                break;
-//
-//                            case 5: //POS
-//                                prepareStatement = DBConnection.prepareStatement(posDAO.getSQL_INSERT());
-//                                while (rs.next()) {
-//
-//                                    //System.out.println(rs.getLong(1));
-//                                    DescargaPOS dpos = new DescargaPOS(rs);
-//
-//                                    if (posDAO.insert(dpos, DBConnection, prepareStatement)) {
-//                                        pb_downloadAVL.setValue(i);
-//                                        jLabel1.setText("descargando registro: " + i + "/" + regCount);
-//                                        System.out.println("descargando registro: " + i + "/" + regCount);
-//                                        i++;
-//                                    } else {
-//                                        proceso_completado = false;
-//                                    }
-//
-//                                }
-//                                //prepareStatement.executeBatch();
-//                                prepareStatementList.add(prepareStatement);
-//                                break;
-//
-//                            case 6: //Odometro
-//                                prepareStatement = DBConnection.prepareStatement(odometroDAO.getSQL_INSERT());
-//                                while (rs.next()) {
-//
-//                                    //System.out.println(rs.getLong(1));
-//                                    DescargaOdometro d_odometro = new DescargaOdometro(rs);
-//
-//                                    if (odometroDAO.insert(d_odometro, DBConnection, prepareStatement)) {
-//                                        pb_downloadAVL.setValue(i);
-//                                        jLabel1.setText("descargando registro: " + i + "/" + regCount);
-//                                        System.out.println("descargando registro: " + i + "/" + regCount);
-//                                        i++;
-//                                    } else {
-//                                        proceso_completado = false;
-//                                    }
-//                                }
-//                                //prepareStatement.executeBatch();
-//                                prepareStatementList.add(prepareStatement);
-//                                break;
-//
-//                            default:
-//                        }
-//
-//                        rsCont++;
-//                    } while (executeSP1.getPrepareCall().getMoreResults());
-//                    // while (prepareCall.getMoreResults());
-//
-//                    //itera sobre el ArrayList de objetos Batch con todos los registros de una tabla para insertarlos en la BD
-//                    //pb_downloadAVL.setMaximum(prepareStatementList.size());
-////                    int j = 1;
-////                    jLabel1.setText("insertando registros...");
-//                    for (PreparedStatement preparedStatementB : prepareStatementList) {
-//                        preparedStatementB.executeBatch(); //ejecuta el Batch para una tabla
-//                        //pb_downloadAVL.setValue(j++);
-//                    }
-                    DescargasAVLController avlController = new DescargasAVLController();
-                    avlController.insertSIGOTODBSMOTOR(pb_downloadAVL, jLabel1, downloadBtn, DBConnection, executeSP1, regCount); //Descarga desde SIGO e inserta a DBINTERMEDIA
-
-                    if (proceso_completado) {
-                        consultasSQL.insertarRangoUltimosIDs(DBConnection, true);
-                    } else {
-                        consultasSQL.insertarRangoUltimosIDs(DBConnection, false);
-                    }
-                    //código funcionando bien hasta aquí:
-                    
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------//                    
-                    
-                    
-                    
-                    StoredProcedure executeSP2 = consultasSQLDBFIMPETISA.executeSP(consultasSQLDBFIMPETISA.getSQLSP_DBINTERMEDIA_TO_DBFIMPETISA());
-                    int avlRegCount = new ConsultasSQL(connDBFIMPETISA).getAVLRegCount(); //obtener cantidad de registros en DBINTERMEDIA contra DBFIMPETISA
-                    //StoredProcedure executeSPFaltantesCounts = consultasSQL.executeSP(consultasSQL.getSQLFN_AVLGPRS_FALTANTES_COUNTS());
-                    //procesar registros faltantes en caso de que los haya
-                    //ResultSet resultsetAVLFaltantesCounts = executeSPFaltantesCounts.getResultset();
-                    //resultsetAVLFaltantesCounts.next();
-//        int countAVLFaltantes = resultsetAVLFaltantesCounts.getInt("total_count");
-//        if(countAVLFaltantes>0){
-//            int rangoID = avlController.procesarFaltantesAVL(pb_downloadAVL, jLabel1, downloadBtn, DBConnection, countAVLFaltantes);
-//                    RangoAVL rangoAVL = avlController.obtenerRangoPorID(DBConnection, rangoID);
-//                    if (rangoAVL != null) {
-//                       // rangoAVL.setProceso_completo(true);
-//                        rangoAVL.setReprocesado(true);
-//                        avlController.actualizarEstatusReprocesado(DBConnection, rangoAVL);
-//                    }
-//        }
-
-                    System.out.println("Descargando DBINTERMEDIA A DBFIMPETISA...");
-                    jLabel1.setText("Descargando DBINTERMEDIA A DBFIMPETISA...");
-                    avlController.insertSIGOTODBSMOTOR(pb_downloadAVL, jLabel1, downloadBtn, connDBFIMPETISA, executeSP2, avlRegCount); //INSERTA desde DBINTERMEDIA A DBFIMPETISA
-
-                }catch (OutOfMemoryError ex) {
+                    Calendar programmed_datetime = Calendar.getInstance();
+                    programmed_datetime.set(Calendar.HOUR_OF_DAY, 10);
+                    programmed_datetime.set(Calendar.MINUTE, 14);
+                    programmed_datetime.set(Calendar.SECOND, 0);
+                    DescargasAVLController descargasAVLController = new DescargasAVLController(pb_downloadAVL, jLabel1, downloadBtn, DBConnection, connDBFIMPETISA, consultasSQL, consultasSQLDBFIMPETISA);
+                    Timer t = new Timer();
+                    System.out.println("synchronization_frec: "+synchronization_frec);
+                    t.scheduleAtFixedRate(descargasAVLController, programmed_datetime.getTime(), Long.parseLong(synchronization_frec.toString()));
+                    //descargasAVLController.download(pb_downloadAVL, jLabel1, downloadBtn, DBConnection, connDBFIMPETISA, consultasSQL, consultasSQLDBFIMPETISA);
+                } catch (OutOfMemoryError ex) {
                     Logger.getLogger(MotorTISA.class.getName()).log(Level.SEVERE, null, ex);
                     JOptionPane.showMessageDialog(rootPane, ex, "Espacio de memoria insuficiente", JOptionPane.ABORT);
-                } 
-                catch (SQLException | IOException ex) {
+
+                } catch (SQLException | IOException ex) {
                     System.out.println("error en proceso");
                     Logger.getLogger(MotorTISA.class.getName()).log(Level.SEVERE, null, ex);
                     try {
@@ -807,13 +534,12 @@ public class MotorTISA extends javax.swing.JFrame {
                         Logger.getLogger(MotorTISA.class.getName()).log(Level.SEVERE, null, ex1);
                     }
 
-                } 
+                }
                 return null;
             }
 
             @Override
             protected void done() {
-
                 FinalTime = System.currentTimeMillis();
                 long processTimeMins = getProcessTimeMins(InitialTime, FinalTime);
                 long processTimeSegs = getProcessTimeSegs(InitialTime, FinalTime);
@@ -825,20 +551,20 @@ public class MotorTISA extends javax.swing.JFrame {
             }
         };
         worker.execute();
-        
+
         SwingWorker procesarDBINTERMEDIA_DBFIMPETISA = new SwingWorker() {
 
             @Override
-            protected Object doInBackground() throws InterruptedException{
+            protected Object doInBackground() throws InterruptedException {
                 try {
-                    
+
                     DescargasAVLController avlController = new DescargasAVLController();
                     Connection connDBFIMPETISA = new ConnectionDB().DBConnection("sqlserver", "192.168.1.206", "1433", "DBFIMPETISA", "user_motor", "Mot0r.Tis4");
                     ConsultasSQL consultasSQLDBFIMPETISA = new ConsultasSQL(connDBFIMPETISA);
                     StoredProcedure executeSP2 = consultasSQLDBFIMPETISA.executeSP(consultasSQLDBFIMPETISA.getSQLSP_DBINTERMEDIA_TO_DBFIMPETISA());
                     int avlRegCount = new ConsultasSQL(connDBFIMPETISA).getAVLRegCount(); //obtener cantidad de registros en DBINTERMEDIA contra DBFIMPETISA
                     //si la cantidad es menor, esperar...
-                    if(avlRegCount<10){
+                    if (avlRegCount < 10) {
                         Thread.sleep(100000);
                     }
                     System.out.println("Descargando DBINTERMEDIA A DBFIMPETISA...");
@@ -889,7 +615,6 @@ public class MotorTISA extends javax.swing.JFrame {
 //            }
 //        };
 //        //crearTablasTmp.execute();
-
         SwingWorker enableDownloadBtn = new SwingWorker() {
             @Override
             @SuppressWarnings("empty-statement")
@@ -955,15 +680,16 @@ public class MotorTISA extends javax.swing.JFrame {
 //                    
 //                    avlController.procesarFaltantesAVL(pb_downloadAVL, jLabel1, downloadBtn, DBConnection);
 //                }
-Date current_date = Date.from(ZonedDateTime.now().toInstant());
-Timer timer = new Timer();
-                timer.schedule(new DescargasAVLFaltantesController(DBConnection, consultasSQL, avlController, createStatement, pb_downloadAVL, jLabel1, downloadBtn),current_date, 100000); //ejecución cada 100 segundos
+                Date current_date = Date.from(ZonedDateTime.now().toInstant());
+                Timer timer = new Timer();
+                timer.schedule(new DescargasAVLFaltantesController(DBConnection, consultasSQL, avlController, createStatement, pb_downloadAVL, jLabel1, downloadBtn), current_date, 100000); //ejecución cada 100 segundos
 
                 return null;
 
             }
+
             @Override
-            protected void done(){
+            protected void done() {
                 System.out.println("proceso completo");
             }
         };
@@ -982,7 +708,7 @@ Timer timer = new Timer();
         System.out.println("calendar: " + programmed_datetime_format);
         System.out.println(current_date_format.compareTo(programmed_datetime_format));
 //        //if (current_date_format.compareTo(programmed_datetime_format) < 0) {
-//            timer.schedule(new DebitoFilesController(pb_debitosFIMPE), programmed_datetime.getTime(), 86400000);
+        timer.schedule(new DebitoFilesController(pb_debitosFIMPE), programmed_datetime.getTime(), 86400000);
 //        //}
 
 
@@ -1026,6 +752,14 @@ Timer timer = new Timer();
             }
         });
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/lightgreen.gif"))); // NOI18N
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/lightred.gif"))); // NOI18N
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void checkConnection() throws IOException {
         System.out.println("conectar a BD...");
@@ -1124,16 +858,17 @@ Timer timer = new Timer();
     public static SwingWorker getRegistros_faltantes_AVL() {
         return registros_faltantes_AVL;
     }
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton downloadBtn;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar2;

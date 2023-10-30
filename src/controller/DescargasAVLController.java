@@ -17,6 +17,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
@@ -32,9 +35,44 @@ import pojos.RangoAVL;
  *
  * @author n6y
  */
-public class DescargasAVLController {
+public class DescargasAVLController extends TimerTask {
 
-    
+    private JProgressBar pb_downloadAVL;
+    private JLabel jLabel1;
+    private JButton downloadBtn;
+    private Connection DBConnection;
+    private Connection connDBFIMPETISA;
+    private ConsultasSQL consultasSQL;
+    private ConsultasSQL consultasSQLDBFIMPETISA;
+    private boolean hilo_corriendo;
+ 
+    public void download() throws SQLException {
+        downloadBtn.setEnabled(false);
+        pb_downloadAVL.setMaximum(100);
+        pb_downloadAVL.setValue(0);
+        pb_downloadAVL.setIndeterminate(true);
+        jLabel1.setText("iniciando descarga AVL...");
+        //regCount = new ConsultasSQL(DBConnection).getAVLRegCount();
+        downloadBtn.setEnabled(false);
+        System.out.println("ejecutando query...");
+        StoredProcedure executeSP = consultasSQL.executeSP(consultasSQL.getSQLSP_AVLGPRS());
+        StoredProcedure executeSP1 = consultasSQL.executeSP(consultasSQL.getSQLSP_AVLGPRS_SELECTS());
+        int regCount = new ConsultasSQL(DBConnection).getAVLRegCount();
+//DescargasAVLController avlController = new DescargasAVLController();
+        boolean proceso_completado = insertSIGOTODBSMOTOR(pb_downloadAVL, jLabel1, downloadBtn, DBConnection, executeSP1, regCount); //Descarga desde SIGO e inserta a DBINTERMEDIA
+
+        if (proceso_completado) {
+            consultasSQL.insertarRangoUltimosIDs(DBConnection, true);
+        } else {
+            consultasSQL.insertarRangoUltimosIDs(DBConnection, false);
+        }
+        StoredProcedure executeSP2 = consultasSQLDBFIMPETISA.executeSP(consultasSQLDBFIMPETISA.getSQLSP_DBINTERMEDIA_TO_DBFIMPETISA());
+        int avlRegCount = new ConsultasSQL(connDBFIMPETISA).getAVLRegCount(); //obtener cantidad de registros en DBINTERMEDIA contra DBFIMPETISA
+        System.out.println("Descargando DBINTERMEDIA A DBFIMPETISA...");
+        jLabel1.setText("Descargando DBINTERMEDIA A DBFIMPETISA...");
+        insertSIGOTODBSMOTOR(pb_downloadAVL, jLabel1, downloadBtn, connDBFIMPETISA, executeSP2, avlRegCount); //INSERTA desde DBINTERMEDIA A DBFIMPETISA
+
+    }
 
     public boolean insertSIGOTODBSMOTOR(JProgressBar pb_downloadAVL, JLabel jLabel1, JButton downloadBtn, Connection DBConnection, StoredProcedure executeSP, int regCount) throws OutOfMemoryError, SQLException {
         System.out.println("ejecutando proceso en hilo...");
@@ -42,7 +80,7 @@ public class DescargasAVLController {
         PreparedStatement prepareStatement;
         int rsCont = 1;
         int i = 1;
-        int j= 1;
+        int j = 1;
         boolean proceso_completado = true;
 
 //        downloadBtn.setEnabled(false);
@@ -95,20 +133,19 @@ public class DescargasAVLController {
                             }
 
                             if (j > 500000) {
-                                j=1;
+                                j = 1;
                                 prepareStatement.executeBatch();
                                 prepareStatement.close();
                                 prepareStatement = DBConnection.prepareStatement(avlDAO.getSQL_INSERT());
                             }
                         }
-                       
-                                prepareStatementList.add(prepareStatement);
-                            
+
+                        prepareStatementList.add(prepareStatement);
+
 //                                long id = davl.getId();
 //                                System.out.println("id ultimo:" + id);
                         //prepareStatement.executeBatch();
                         //prepareStatementList.add(prepareStatement);
-
                         break;
 
                     case 2: //TDE
@@ -308,6 +345,71 @@ public class DescargasAVLController {
             System.out.println("rango: " + rangoAVL.getId_primero());
         }
         return rangoAVL;
+    }
+
+    @Override
+    public void run() {
+//        try {
+//            System.out.println("hilo corriendo = "+hilo_corriendo);
+//            if (!hilo_corriendo) {
+//                System.out.println("descargar registros...");
+//                hilo_corriendo = true;
+//                download();
+//                hilo_corriendo = false;
+//            }
+//
+//        } catch (SQLException ex) {
+//            Logger.getLogger(DescargasAVLController.class.getName()).log(Level.SEVERE, null, ex);
+//        } finally {
+//            hilo_corriendo = false;
+//        }
+System.out.println("iniciando TimerTask...");
+System.out.println("hilo corriendo = "+hilo_corriendo);
+if (!hilo_corriendo) {
+    try {
+        System.out.println("descargar registros...");
+        hilo_corriendo = true;
+        System.out.println("hilo corriendo? = "+hilo_corriendo);
+        download();
+        System.out.println("descarga completa");
+        hilo_corriendo = false;
+        System.out.println("hilo corriendo? = "+hilo_corriendo);
+//    Thread thread = new Thread(new Runnable() {
+//        @Override
+//        public void run() {
+//            System.out.println("descargando registros...");
+//            System.out.println("hilo corriendo? = "+hilo_corriendo);
+//            try {
+//                Thread.sleep(120000);
+//                System.out.println("descarga completa");
+//                hilo_corriendo = false;
+//                System.out.println("hilo corriendo? = "+hilo_corriendo);
+//            } catch (InterruptedException ex) {
+//                Logger.getLogger(DescargasAVLController.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//            
+//        }
+//    });
+//    thread.start();
+    } catch (SQLException ex) {
+        Logger.getLogger(DescargasAVLController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+}
+
+    }
+
+    public DescargasAVLController(JProgressBar pb_downloadAVL, JLabel jLabel1, JButton downloadBtn, Connection DBConnection, Connection connDBFIMPETISA, ConsultasSQL consultasSQL, ConsultasSQL consultasSQLDBFIMPETISA) {
+        this.pb_downloadAVL = pb_downloadAVL;
+        this.jLabel1 = jLabel1;
+        this.downloadBtn = downloadBtn;
+        this.DBConnection = DBConnection;
+        this.connDBFIMPETISA = connDBFIMPETISA;
+        this.consultasSQL = consultasSQL;
+        this.consultasSQLDBFIMPETISA = consultasSQLDBFIMPETISA;
+    }
+
+    public DescargasAVLController() {
     }
 
 }

@@ -41,6 +41,7 @@ private JProgressBar pb_debitosFIMPE;
             System.out.println(fd.getSQL_INSERT());
             StoredProcedure debitos = consultasSQLDBFIMPETISA.executeSP(consultasSQLDBFIMPETISA.getSQLSP_SELECT_DEBITOS());
             ResultSet rs = debitos.getResultset();
+            System.out.println("columnas"+rs.getMetaData().getColumnCount());
             PreparedStatement prepareStatement = connDBFIMPETISA.prepareStatement(fd.getSQL_INSERT());
             int i = 1;
             pb_debitosFIMPE.setMaximum(76);
