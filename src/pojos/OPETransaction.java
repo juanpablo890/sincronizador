@@ -12,7 +12,7 @@ import java.sql.ResultSet;
  * @author Juan Pablo
  */
 public class OPETransaction {
-
+//
     private long id;
     private long collection_id;
     private String transaction_type;
