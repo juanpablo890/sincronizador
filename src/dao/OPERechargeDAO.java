@@ -21,7 +21,7 @@ private final String SQL_INSERT = "INSERT INTO sfinx.ope_recharge VALUES (?,?,?,
     public OPERechargeDAO() {
 
     }
-
+//
     //Inserta un registro en la tabla [sfinx].[ope_recharge] BD: DBINTERMEDIA a partir de un objeto OpeRecharge
     public void insert(OPERecharge r, Connection DBConnection, PreparedStatement prepareStatement) {
         try {
