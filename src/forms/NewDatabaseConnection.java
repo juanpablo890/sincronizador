@@ -144,7 +144,8 @@ public class NewDatabaseConnection extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,7 +156,7 @@ public class NewDatabaseConnection extends javax.swing.JFrame {
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel6))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -182,14 +183,14 @@ public class NewDatabaseConnection extends javax.swing.JFrame {
                                     .addComponent(frecuency)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(88, 88, 88)
                                         .addComponent(save_btn)
                                         .addGap(34, 34, 34)
-                                        .addComponent(cancel))
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(cancel)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(38, 38, 38))
+                .addGap(27, 27, 27))
             .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jSeparator3)
         );
@@ -280,7 +281,7 @@ public class NewDatabaseConnection extends javax.swing.JFrame {
                             dbc = new DatabaseConfiguration(alias.getText(), dbname.getText(), username.getText(), String.valueOf(password.getPassword()), servername.getText(), Integer.parseInt(port.getText()), Integer.parseInt(frecuency.getText()), Integer.parseInt(records_amount.getText()), String.valueOf(sgbd.getSelectedItem()));
                             PreparedStatement prepareStatement = connection_sqlserver.prepareStatement(dbcDAO.getSQL_INSERT());
                             
-                            dbcDAO.insert(dbc, connection_sqlserver, prepareStatement);
+                            dbcDAO.insert(dbc, prepareStatement);
                             //new ConfigurationFile().createConfigurationFile(alias.getText(), dbname.getText(), username.getText(), password.getPassword(), servername.getText(), Integer.parseInt(port.getText()), Integer.parseInt(frecuency.getText()), Integer.parseInt(records_amount.getText()), String.valueOf(sgbd.getSelectedItem()));
                             JOptionPane.showMessageDialog(rootPane, "configuración guardada exitosamente!");
                             DBConnection.close();
@@ -309,7 +310,7 @@ public class NewDatabaseConnection extends javax.swing.JFrame {
                         }
                         
                         try {
-                            dbcDAO.insert(dbc, connection_sqlserver, prepareStatement);
+                            dbcDAO.insert(dbc, prepareStatement);
                         } catch (SQLException ex) {
                             Logger.getLogger(NewDatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
                         }

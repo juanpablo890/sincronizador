@@ -3,6 +3,7 @@ package forms;
 
 import controller.ConfigurationFile;
 import controller.ConnectionDB;
+import dao.DatabaseConfigurationDAO;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.HashMap;
@@ -16,6 +17,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.SwingWorker;
 import javax.swing.UIManager;
+import pojos.DatabaseConfiguration;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -35,6 +37,7 @@ public class Configuration extends javax.swing.JFrame {
     private Connection conn;
     private boolean cancelOption;
     SwingWorker worker = null;
+    private boolean editar;
     public Configuration() { //leer campos de la BD en lugar de archivo properties.
         initComponents();
         HashMap properties = null;
@@ -96,7 +99,7 @@ public class Configuration extends javax.swing.JFrame {
         username = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         servername = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        save = new javax.swing.JButton();
         cancel = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -117,6 +120,8 @@ public class Configuration extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         sgbd = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        edit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("seleccionar base de datos por defecto");
@@ -131,10 +136,10 @@ public class Configuration extends javax.swing.JFrame {
 
         servername.setEditable(false);
 
-        jButton1.setText("Guardar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        save.setText("Guardar");
+        save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                saveActionPerformed(evt);
             }
         });
 
@@ -182,24 +187,40 @@ public class Configuration extends javax.swing.JFrame {
 
         jLabel9.setText("SGBD:");
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/pencil.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        edit.setText("Editar");
+        edit.setEnabled(false);
+        edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(88, 88, 88)
-                                .addComponent(jButton1)
-                                .addGap(34, 34, 34)
-                                .addComponent(cancel))
+                        .addGap(88, 88, 88)
+                        .addComponent(save)
+                        .addGap(34, 34, 34)
+                        .addComponent(cancel)
+                        .addGap(18, 18, 18)
+                        .addComponent(edit))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -222,17 +243,18 @@ public class Configuration extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel9)
                                         .addGap(18, 18, 18)
-                                        .addComponent(sgbd, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(records_amount, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                                    .addComponent(frecuency)))
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(39, Short.MAX_VALUE))
+                                        .addComponent(sgbd, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))
+                        .addGap(57, 57, 57)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(frecuency, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(records_amount, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jSeparator3)
         );
@@ -240,11 +262,13 @@ public class Configuration extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(aliasList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(sgbd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(aliasList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6)
+                        .addComponent(sgbd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9)))
                 .addGap(12, 12, 12)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -268,24 +292,25 @@ public class Configuration extends javax.swing.JFrame {
                     .addComponent(port, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(default_connection))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(3, 3, 3)
                 .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(frecuency, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(records_amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(cancel))
+                    .addComponent(save)
+                    .addComponent(cancel)
+                    .addComponent(edit))
                 .addGap(24, 24, 24))
         );
 
@@ -294,15 +319,43 @@ public class Configuration extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
        
         worker = new SwingWorker() {
             @Override
             protected Object doInBackground() throws InterruptedException  {
                 System.out.println("clic");
         if (default_connection.isSelected()) {
+            testConnection();
+
+        } else {
+            try {
+                new ConfigurationFile().createConfigurationFile(String.valueOf(aliasList.getSelectedItem()), dbname.getText(), username.getText(), password.getPassword(), servername.getText(), Integer.parseInt(port.getText()), Integer.parseInt(frecuency.getText()), Integer.parseInt(records_amount.getText()), sgbd.getText());
+                JOptionPane.showMessageDialog(rootPane, "configuración guardada exitosamente!");
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(rootPane, "error al crear archivo de configuración", "ERROR", JOptionPane.ERROR_MESSAGE);
+                Logger.getLogger(Configuration.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+                return null;
+            }
+
+            @Override
+            protected void done() {
+                jProgressBar1.setIndeterminate(false);
+                jProgressBar1.setValue(100);
+                cancel.setEnabled(true);
+                System.out.println("terminó hilo de ejecución");
+            }
             
-            System.out.println("testing connection...");
+        };
+        worker.execute();
+
+
+    }//GEN-LAST:event_saveActionPerformed
+
+    private void testConnection(){
+        System.out.println("testing connection...");
             jProgressBar1.setValue(0);
             jProgressBar1.setIndeterminate(true);
             ConnectionDB connectionDB = new ConnectionDB();
@@ -332,34 +385,7 @@ public class Configuration extends javax.swing.JFrame {
                 Logger.getLogger(Configuration.class.getName()).log(Level.SEVERE, null, ex);
 
             }
-
-        } else {
-            try {
-                new ConfigurationFile().createConfigurationFile(String.valueOf(aliasList.getSelectedItem()), dbname.getText(), username.getText(), password.getPassword(), servername.getText(), Integer.parseInt(port.getText()), Integer.parseInt(frecuency.getText()), Integer.parseInt(records_amount.getText()), sgbd.getText());
-                JOptionPane.showMessageDialog(rootPane, "configuración guardada exitosamente!");
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(rootPane, "error al crear archivo de configuración", "ERROR", JOptionPane.ERROR_MESSAGE);
-                Logger.getLogger(Configuration.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-                return null;
-            }
-
-            @Override
-            protected void done() {
-                jProgressBar1.setIndeterminate(false);
-                jProgressBar1.setValue(100);
-                cancel.setEnabled(true);
-                System.out.println("terminó hilo de ejecución");
-            }
-            
-        };
-        worker.execute();
-
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    
+    }
     
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
         System.out.println("cancelar proceso...");
@@ -374,6 +400,34 @@ public class Configuration extends javax.swing.JFrame {
         getDatabaseConexionData();
         System.out.println(aliasList.getSelectedItem());
     }//GEN-LAST:event_aliasListItemStateChanged
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        dbname.setEditable(true);
+            username.setEditable(true);
+            password.setEditable(true);
+            servername.setEditable(true);
+            port.setEditable(true);
+            frecuency.setEditable(true);
+            records_amount.setEditable(true);
+            sgbd.setEditable(true);
+            edit.setEnabled(true);
+            save.setEnabled(false);
+            
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
+        save.setEnabled(true);
+        DatabaseConfigurationDAO dbcDAO = new DatabaseConfigurationDAO();
+        
+//        DatabaseConfiguration dbc = new DatabaseConfiguration(dbcDAO.,String.valueOf(aliasList.getSelectedItem()), dbname.getText(), username.getText(), String.valueOf(password.getPassword()), servername.getText(), Integer.parseInt(port.getText()), Integer.parseInt(frecuency.getText()), Integer.parseInt(records_amount.getText()), String.valueOf(sgbd.getText()));
+//                   
+//                        try {
+//                           PreparedStatement prepareStatement = conn.prepareStatement(dbcDAO.getSQL_UPDATE());
+//                            dbcDAO.update(dbc, prepareStatement);
+//                        } catch (SQLException ex) {
+//                            Logger.getLogger(NewDatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
+//                        }
+    }//GEN-LAST:event_editActionPerformed
 
     private void getDatabaseConexionData(){
         try {
@@ -435,8 +489,9 @@ public class Configuration extends javax.swing.JFrame {
     private javax.swing.JButton cancel;
     private javax.swing.JTextField dbname;
     private javax.swing.JCheckBox default_connection;
+    private javax.swing.JButton edit;
     private javax.swing.JTextField frecuency;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -453,6 +508,7 @@ public class Configuration extends javax.swing.JFrame {
     private javax.swing.JPasswordField password;
     private javax.swing.JTextField port;
     private javax.swing.JTextField records_amount;
+    private javax.swing.JButton save;
     private javax.swing.JTextField servername;
     private javax.swing.JTextField sgbd;
     private javax.swing.JTextField username;

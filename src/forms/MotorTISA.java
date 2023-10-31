@@ -519,7 +519,7 @@ public class MotorTISA extends javax.swing.JFrame {
                     DescargasAVLController descargasAVLController = new DescargasAVLController(pb_downloadAVL, jLabel1, downloadBtn, DBConnection, connDBFIMPETISA, consultasSQL, consultasSQLDBFIMPETISA);
                     Timer t = new Timer();
                     System.out.println("synchronization_frec: "+synchronization_frec);
-                    t.scheduleAtFixedRate(descargasAVLController, programmed_datetime.getTime(), Long.parseLong(synchronization_frec.toString()));
+                    t.scheduleAtFixedRate(descargasAVLController, programmed_datetime.getTime(), Long.parseLong(synchronization_frec.toString())*1000);
                     //descargasAVLController.download(pb_downloadAVL, jLabel1, downloadBtn, DBConnection, connDBFIMPETISA, consultasSQL, consultasSQLDBFIMPETISA);
                 } catch (OutOfMemoryError ex) {
                     Logger.getLogger(MotorTISA.class.getName()).log(Level.SEVERE, null, ex);

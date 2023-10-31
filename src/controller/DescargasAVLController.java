@@ -45,7 +45,7 @@ public class DescargasAVLController extends TimerTask {
     private ConsultasSQL consultasSQL;
     private ConsultasSQL consultasSQLDBFIMPETISA;
     private boolean hilo_corriendo;
- 
+
     public void download() throws SQLException {
         downloadBtn.setEnabled(false);
         pb_downloadAVL.setMaximum(100);
@@ -319,18 +319,19 @@ public class DescargasAVLController extends TimerTask {
         }
     }
 
-    public void actualizarEstatusReprocesado(Connection DBConnection, RangoAVL rangoAVL) throws SQLException {
+    private void actualizarEstatusReprocesado(Connection DBConnection, RangoAVL rangoAVL) throws SQLException {
         RangoAVLDAO rdao = new RangoAVLDAO();
         PreparedStatement prepareStatement = DBConnection.prepareStatement(rdao.getSQL_UPDATE());
-        prepareStatement.setLong(1, rangoAVL.getId_primero());
-        prepareStatement.setLong(2, rangoAVL.getId_ultimo());
-        prepareStatement.setLong(3, rangoAVL.getCantidad_insertada());
-        prepareStatement.setLong(4, rangoAVL.getCantidad_esperada());
-        prepareStatement.setBoolean(5, rangoAVL.isProceso_completo());
-        prepareStatement.setBoolean(6, rangoAVL.isReprocesado());
-        prepareStatement.setTimestamp(7, rangoAVL.getCreated_at());
-        prepareStatement.setLong(8, rangoAVL.getId());
-        prepareStatement.executeUpdate();
+        rdao.update(rangoAVL, prepareStatement);
+//        prepareStatement.setLong(1, rangoAVL.getId_primero());
+//        prepareStatement.setLong(2, rangoAVL.getId_ultimo());
+//        prepareStatement.setLong(3, rangoAVL.getCantidad_insertada());
+//        prepareStatement.setLong(4, rangoAVL.getCantidad_esperada());
+//        prepareStatement.setBoolean(5, rangoAVL.isProceso_completo());
+//        prepareStatement.setBoolean(6, rangoAVL.isReprocesado());
+//        prepareStatement.setTimestamp(7, rangoAVL.getCreated_at());
+//        prepareStatement.setLong(8, rangoAVL.getId());
+//        prepareStatement.executeUpdate();
 
     }
 
@@ -363,17 +364,17 @@ public class DescargasAVLController extends TimerTask {
 //        } finally {
 //            hilo_corriendo = false;
 //        }
-System.out.println("iniciando TimerTask...");
-System.out.println("hilo corriendo = "+hilo_corriendo);
-if (!hilo_corriendo) {
-    try {
-        System.out.println("descargar registros...");
-        hilo_corriendo = true;
-        System.out.println("hilo corriendo? = "+hilo_corriendo);
-        download();
-        System.out.println("descarga completa");
-        hilo_corriendo = false;
-        System.out.println("hilo corriendo? = "+hilo_corriendo);
+        System.out.println("iniciando TimerTask...");
+        System.out.println("hilo corriendo = " + hilo_corriendo);
+        if (!hilo_corriendo) {
+            try {
+                System.out.println("descargar registros...");
+                hilo_corriendo = true;
+                System.out.println("hilo corriendo? = " + hilo_corriendo);
+                download();
+                System.out.println("descarga completa");
+                hilo_corriendo = false;
+                System.out.println("hilo corriendo? = " + hilo_corriendo);
 //    Thread thread = new Thread(new Runnable() {
 //        @Override
 //        public void run() {
@@ -391,11 +392,11 @@ if (!hilo_corriendo) {
 //        }
 //    });
 //    thread.start();
-    } catch (SQLException ex) {
-        Logger.getLogger(DescargasAVLController.class.getName()).log(Level.SEVERE, null, ex);
-    }
-    
-}
+            } catch (SQLException ex) {
+                Logger.getLogger(DescargasAVLController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
 
     }
 

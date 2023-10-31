@@ -20,7 +20,7 @@ public class OPETransactionDAO {
     private final String SQL_INSERT = "INSERT INTO sfinx.ope_transaction VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
     public OPETransactionDAO() {
-
+//
     }
 
     //Inserta un registro en la tabla [sfinx].[ope_transaction] BD: DBINTERMEDIA a partir de un objeto OpeTransaction
