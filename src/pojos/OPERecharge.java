@@ -13,7 +13,7 @@ import java.sql.ResultSet;
  * @author n6y
  */
 public class OPERecharge {
-
+//
     private long id;
     private long id_shift;
     private long id_beneficiary;
